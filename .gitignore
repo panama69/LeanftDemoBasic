@@ -124,3 +124,6 @@ test-output/
 Apache_POI/
 cucumber_jars/
 selenium-2.53.1/
+
+#ignor file used to determine Jenkins location
+header.txt
