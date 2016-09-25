@@ -1,0 +1,54 @@
+2016-09-24 11:43:10,024 [12] INFO  - Step 'Start' : Step 'Start' started
+2016-09-24 11:43:10,058 [12] INFO  - Step 'Start' ended successfully
+2016-09-24 11:43:10,059 [12] INFO  - Step 'Test Flow' : Step 'Test Flow' started
+2016-09-24 11:43:10,066 [12] INFO  - Step 'Iteration 1' : Step 'Iteration 1' started
+2016-09-24 11:43:10,067 [12] INFO  - Step 'AccountCreate' : Step 'AccountCreate' started
+2016-09-24 11:43:10,076 [12] INFO  - 
+Request:
+
+<Envelope xmlns="http://schemas.xmlsoap.org/soap/envelope/">
+  <Body>
+    <AccountCreateRequest xmlns="com.advantage.online.store.accountservice">
+      <lastName>Rachelson</lastName>
+      <firstName>Yossi</firstName>
+      <loginName>user9999</loginName>
+      <countryId>2</countryId>
+      <stateProvince>fff</stateProvince>
+      <cityName>ggg</cityName>
+      <address>ffff</address>
+      <zipcode>4444</zipcode>
+      <phoneNumber>454545</phoneNumber>
+      <email>abc@hpe.com</email>
+      <password>Aa1234</password>
+      <accountType>10</accountType>
+      <allowOffersPromotion>true</allowOffersPromotion>
+    </AccountCreateRequest>
+  </Body>
+</Envelope>
+
+2016-09-24 11:43:10,119 [12] INFO  - URL: http://www.advantageonlineshopping.com:80/accountservice/
+2016-09-24 11:43:10,313 [12] INFO  - Returning the response to the previous channel
+2016-09-24 11:43:10,317 [12] INFO  - 
+Response:
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Header />
+  <SOAP-ENV:Body>
+    <ns2:AccountCreateResponse xmlns:ns2="com.advantage.online.store.accountservice">
+      <ns2:StatusMessage>
+        <ns2:success>false</ns2:success>
+        <ns2:userId>-1</ns2:userId>
+        <ns2:reason>User name already exists</ns2:reason>
+      </ns2:StatusMessage>
+    </ns2:AccountCreateResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+2016-09-24 11:43:10,335 [12] INFO  - The element 'StatusMessage' in namespace 'com.advantage.online.store.accountservice' has incomplete content. List of possible elements expected: 'token' in namespace 'com.advantage.online.store.accountservice'. 
+
+2016-09-24 11:43:10,338 [12] INFO  - Structural Validation: False
+2016-09-24 11:43:10,497 [12] INFO  - Step 'AccountCreate' ended successfully
+2016-09-24 11:43:10,499 [12] INFO  - Step 'Iteration 1' ended successfully
+2016-09-24 11:43:10,506 [12] INFO  - Step 'Test Flow' ended successfully
+2016-09-24 11:43:10,507 [12] INFO  - Step 'End' : Step 'End' started
+2016-09-24 11:43:10,520 [12] INFO  - Step 'End' ended successfully

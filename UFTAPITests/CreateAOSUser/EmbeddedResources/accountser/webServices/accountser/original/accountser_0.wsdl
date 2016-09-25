@@ -1,0 +1,981 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="com.advantage.online.store.accountservice" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="com.advantage.online.store.accountservice" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xs:schema xmlns:sx="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="com.advantage.online.store.accountservice" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <sx:complexType name="AccountStatusResponse">
+        <sx:sequence>
+          <sx:element name="success" type="sx:boolean" />
+          <sx:element name="userId" type="sx:long" />
+          <sx:element name="reason" type="sx:string" />
+          <sx:element name="token" type="sx:string" />
+          <sx:element name="sessionId" type="sx:string" />
+        </sx:sequence>
+      </sx:complexType>
+      <sx:complexType name="CountryStatusResponse">
+        <sx:sequence>
+          <sx:element name="reason" type="sx:string" />
+          <sx:element name="success" type="sx:boolean" />
+          <sx:element name="countryId" type="sx:long" />
+        </sx:sequence>
+      </sx:complexType>
+      <sx:complexType name="PaymentPreferencesStatusResponse">
+        <sx:sequence>
+          <sx:element name="reason" type="sx:string" />
+          <sx:element name="success" type="sx:boolean" />
+          <sx:element name="id" type="sx:long" />
+        </sx:sequence>
+      </sx:complexType>
+      <sx:complexType name="account" />
+      <sx:complexType name="country" />
+      <sx:complexType name="AddressStatusResponse">
+        <sx:sequence>
+          <sx:element name="reason" type="sx:string" />
+          <sx:element name="success" type="sx:boolean" />
+        </sx:sequence>
+      </sx:complexType>
+      <sx:element name="GetAccountConfigurationResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element form="qualified" name="numberOfFailedLoginAttemptsBeforeBlocking" type="sx:int" />
+            <sx:element form="qualified" name="loginBlockingIntervalInSeconds" type="sx:long" />
+            <sx:element form="qualified" name="productInStockDefaultValue" type="sx:int" />
+            <sx:element form="qualified" name="userSecondWsdl" type="sx:boolean" />
+            <sx:element form="qualified" name="userLoginTimeout" type="sx:int" />
+            <sx:element form="qualified" name="allowUserConfiguration" type="sx:boolean" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:complexType name="AccountDto">
+        <sx:sequence>
+          <sx:element name="id" type="sx:long" />
+          <sx:element name="lastName" type="sx:string" />
+          <sx:element name="firstName" type="sx:string" />
+          <sx:element name="loginName" type="sx:string" />
+          <sx:element name="accountType" type="sx:int" />
+          <sx:element name="countryId" type="sx:long" />
+          <sx:element name="countryName" type="sx:string" />
+          <sx:element name="countryIsoName" type="sx:string" />
+          <sx:element name="stateProvince" type="sx:string" />
+          <sx:element name="cityName" type="sx:string" />
+          <sx:element name="address" type="sx:string" />
+          <sx:element name="zipcode" type="sx:string" />
+          <sx:element name="phoneNumber" type="sx:string" />
+          <sx:element name="email" type="sx:string" />
+          <sx:element name="defaultPaymentMethodId" type="sx:long" />
+          <sx:element name="allowOffersPromotion" type="sx:boolean" />
+          <sx:element name="internalUnsuccessfulLoginAttempts" type="sx:int" />
+          <sx:element name="internalUserBlockedFromLoginUntil" type="sx:long" />
+          <sx:element name="internalLastSuccesssulLogin" type="sx:long" />
+        </sx:sequence>
+      </sx:complexType>
+      <sx:complexType name="AccountDtoNew">
+        <sx:sequence>
+          <sx:element name="id" type="sx:long" />
+          <sx:element name="lastName" type="sx:string" />
+          <sx:element name="firstName" type="sx:string" />
+          <sx:element name="loginName" type="sx:string" />
+          <sx:element name="accountType" type="sx:int" />
+          <sx:element name="countryId" type="sx:long" />
+          <sx:element name="countryName" type="sx:string" />
+          <sx:element name="countryIsoName" type="sx:string" />
+          <sx:element name="stateProvince" type="sx:string" />
+          <sx:element name="cityName" type="sx:string" />
+          <sx:element name="address" type="sx:string" />
+          <sx:element name="zipcode" type="sx:string" />
+          <sx:element name="phoneNumber" type="sx:string" />
+          <sx:element name="email" type="sx:string" />
+          <sx:element name="defaultPaymentMethodId" type="sx:long" />
+          <sx:element name="allowOffersPromotion" type="sx:boolean" />
+          <sx:element name="internalUnsuccessfulLoginAttempts" type="sx:int" />
+          <sx:element name="internalUserBlockedFromLoginUntil" type="sx:long" />
+          <sx:element name="internalLastSuccesssulLogin" type="sx:long" />
+        </sx:sequence>
+      </sx:complexType>
+      <sx:element name="GetAllAccountsResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element minOccurs="0" maxOccurs="unbounded" name="account" type="tns:AccountDto" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:complexType name="AddressDto">
+        <sx:sequence>
+          <sx:element form="qualified" name="id" nillable="true" type="sx:long" />
+          <sx:element form="qualified" name="addressLine1" type="sx:string" />
+          <sx:element form="qualified" name="addressLine2" type="sx:string" />
+          <sx:element form="qualified" name="city" type="sx:string" />
+          <sx:element form="qualified" name="country" type="sx:string" />
+          <sx:element form="qualified" name="state" type="sx:string" />
+          <sx:element form="qualified" name="postalCode" type="sx:string" />
+          <sx:element form="qualified" name="accountId" type="sx:long" />
+        </sx:sequence>
+      </sx:complexType>
+      <sx:complexType name="UpdateAddressDto">
+        <sx:sequence>
+          <sx:element form="qualified" name="id" nillable="true" type="sx:long" />
+          <sx:element form="qualified" name="addressLine1" type="sx:string" />
+          <sx:element form="qualified" name="addressLine2" type="sx:string" />
+          <sx:element form="qualified" name="city" type="sx:string" />
+          <sx:element form="qualified" name="country" type="sx:string" />
+          <sx:element form="qualified" name="state" type="sx:string" />
+          <sx:element form="qualified" name="postalCode" type="sx:string" />
+        </sx:sequence>
+      </sx:complexType>
+      <sx:complexType name="AddAddressDto">
+        <sx:sequence>
+          <sx:element form="qualified" name="addressLine1" type="sx:string" />
+          <sx:element form="qualified" name="addressLine2" type="sx:string" />
+          <sx:element form="qualified" name="city" type="sx:string" />
+          <sx:element form="qualified" name="country" type="sx:string" />
+          <sx:element form="qualified" name="state" type="sx:string" />
+          <sx:element form="qualified" name="postalCode" type="sx:string" />
+        </sx:sequence>
+      </sx:complexType>
+      <sx:element name="GetAllAccountsRequest">
+        <sx:complexType>
+          <sx:sequence />
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="GetCountriesRequest">
+        <sx:complexType>
+          <sx:sequence />
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="GetAccountConfigurationRequest">
+        <sx:complexType>
+          <sx:sequence />
+        </sx:complexType>
+      </sx:element>
+      <sx:complexType name="CountryDto">
+        <sx:sequence>
+          <sx:element name="id" type="sx:long" />
+          <sx:element name="name" type="sx:string" />
+          <sx:element name="isoName" type="sx:string" />
+          <sx:element name="phonePrefix" type="sx:int" />
+        </sx:sequence>
+      </sx:complexType>
+      <sx:element name="GetCountriesResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element minOccurs="0" maxOccurs="unbounded" name="Country" type="tns:CountryDto" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="CountrySearchResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="Country" type="tns:CountryDto" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="GetAddressesByAccountIdRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="accountId" type="sx:long" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="GetAccountByIdRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="accountId" type="sx:long" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="GetAccountByIdNewResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="AccountResponse" type="tns:AccountDtoNew" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="GetAccountByIdNewRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="accountId" type="sx:long" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="GetAccountByIdResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="AccountResponse" type="tns:AccountDto" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="GetAddressesByAccountIdResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element minOccurs="0" maxOccurs="unbounded" name="ShippingAddress" type="tns:AccountDto" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AccountCreateRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="lastName" type="sx:string" />
+            <sx:element name="firstName" type="sx:string" />
+            <sx:element name="loginName" type="sx:string" />
+            <sx:element name="countryId" type="sx:long" />
+            <sx:element name="stateProvince" type="sx:string" />
+            <sx:element name="cityName" type="sx:string" />
+            <sx:element name="address" type="sx:string" />
+            <sx:element name="zipcode" type="sx:string" />
+            <sx:element name="phoneNumber" type="sx:string" />
+            <sx:element name="email" type="sx:string" />
+            <sx:element name="password" type="sx:string" />
+            <sx:element name="accountType" type="sx:int" />
+            <sx:element name="allowOffersPromotion" type="sx:boolean" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AccountCreateResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="StatusMessage" type="tns:AccountStatusResponse" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AccountDeleteRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element form="qualified" name="accountId" type="sx:long" />
+            <sx:element form="qualified" name="base64Token" type="sx:string" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AccountDeleteResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element form="qualified" name="StatusMessage">
+              <sx:complexType>
+                <sx:sequence>
+                  <sx:element form="qualified" name="success" type="sx:boolean" />
+                  <sx:element form="qualified" name="userId" type="sx:long" />
+                  <sx:element form="qualified" name="reason" type="sx:string" />
+                  <sx:element form="qualified" name="token" type="sx:string" />
+                  <sx:element form="qualified" name="sessionId" type="sx:string" />
+                </sx:sequence>
+              </sx:complexType>
+            </sx:element>
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AccountUpdateResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="StatusMessage" type="tns:AccountStatusResponse" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="ChangePasswordResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="StatusMessage" type="tns:AccountStatusResponse" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AccountUpdateRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="lastName" type="sx:string" />
+            <sx:element name="firstName" type="sx:string" />
+            <sx:element name="accountId" type="sx:long" />
+            <sx:element name="countryId" type="sx:long" />
+            <sx:element name="stateProvince" type="sx:string" />
+            <sx:element name="cityName" type="sx:string" />
+            <sx:element name="address" type="sx:string" />
+            <sx:element name="zipcode" type="sx:string" />
+            <sx:element name="phoneNumber" type="sx:string" />
+            <sx:element name="email" type="sx:string" />
+            <sx:element name="accountType" type="sx:int" />
+            <sx:element name="allowOffersPromotion" type="sx:boolean" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="CountryCreateRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="name" type="sx:string" />
+            <sx:element name="isoName" type="sx:string" />
+            <sx:element name="phonePrefix" type="sx:string" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="CountrySearchRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="internationalPhonePrefix" type="sx:int" />
+            <sx:element name="startOfName" type="sx:string" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="CountryCreateResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="StatusMessage" type="tns:CountryStatusResponse" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AccountLoginRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="loginUser" type="sx:string" />
+            <sx:element name="email" type="sx:string" />
+            <sx:element name="loginPassword" type="sx:string" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AccountLoginResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="StatusMessage" type="tns:AccountStatusResponse" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AccountLogoutRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="loginUser" type="sx:string" />
+            <sx:element name="base64Token" type="sx:string" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AccountLogoutResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="StatusMessage" type="tns:AccountStatusResponse" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="PaymentMethodUpdateRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="accountId" type="sx:long" />
+            <sx:element name="paymentMethod" type="sx:int" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="PaymentMethodUpdateResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="StatusMessage" type="tns:AccountStatusResponse" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AddAddressesRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element maxOccurs="unbounded" form="qualified" name="address" type="tns:AddAddressDto" />
+            <sx:element name="accountId" type="sx:long" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AddAddressesResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="StatusMessage" type="tns:AddressStatusResponse" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AddressUpdateResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="StatusMessage" type="tns:AddressStatusResponse" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AddressUpdateRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="address" type="tns:UpdateAddressDto" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="ChangePasswordRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="accountId" type="sx:long" />
+            <sx:element name="oldPassword" type="sx:string" />
+            <sx:element name="newPassword" type="sx:string" />
+            <sx:element name="base64Token" type="sx:string" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AddSafePayMethodRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="accountId" type="sx:long" />
+            <sx:element name="safePayUsername" type="sx:string" />
+            <sx:element name="safePayPassword" type="sx:string" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AddSafePayMethodResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="StatusMessage" type="tns:PaymentPreferencesStatusResponse" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AddMasterCreditMethodRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="cardNumber" type="sx:string" />
+            <sx:element name="expirationDate" type="sx:string" />
+            <sx:element name="cvvNumber" type="sx:string" />
+            <sx:element name="customerName" type="sx:string" />
+            <sx:element name="accountId" type="sx:long" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="AddMasterCreditMethodResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="StatusMessage" type="tns:PaymentPreferencesStatusResponse" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="UpdateSafePayMethodRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="userId" type="sx:long" />
+            <sx:element name="safePayUsername" type="sx:string" />
+            <sx:element name="safePayPassword" type="sx:string" />
+            <sx:element name="referenceId" type="sx:long" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="UpdateSafePayMethodResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element form="qualified" name="StatusMessage">
+              <sx:complexType>
+                <sx:sequence>
+                  <sx:element form="qualified" name="success" type="sx:boolean" />
+                  <sx:element form="qualified" name="id" type="sx:long" />
+                  <sx:element form="qualified" name="reason" type="sx:string" />
+                </sx:sequence>
+              </sx:complexType>
+            </sx:element>
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="UpdateMasterCreditMethodRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="userId" type="sx:long" />
+            <sx:element name="cardNumber" type="sx:string" />
+            <sx:element name="expirationDate" type="sx:string" />
+            <sx:element name="cvvNumber" type="sx:string" />
+            <sx:element name="customerName" type="sx:string" />
+            <sx:element name="referenceId" type="sx:long" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="UpdateMasterCreditMethodResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element form="qualified" name="StatusMessage">
+              <sx:complexType>
+                <sx:sequence>
+                  <sx:element form="qualified" name="success" type="sx:boolean" />
+                  <sx:element form="qualified" name="id" type="sx:long" />
+                  <sx:element form="qualified" name="reason" type="sx:string" />
+                </sx:sequence>
+              </sx:complexType>
+            </sx:element>
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:complexType name="PaymentPreferencesDto">
+        <sx:sequence>
+          <sx:element name="paymentMethod" type="sx:int" />
+          <sx:element name="cardNumber" type="sx:string" />
+          <sx:element name="expirationDate" type="sx:string" />
+          <sx:element name="cvvNumber" type="sx:string" />
+          <sx:element name="safePayUsername" type="sx:string" />
+          <sx:element name="safePayPassword" type="sx:string" />
+          <sx:element name="customerName" type="sx:string" />
+          <sx:element name="preferenceId" type="sx:long" />
+        </sx:sequence>
+      </sx:complexType>
+      <sx:element name="GetAccountPaymentPreferencesRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="accountId" type="sx:long" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="GetAccountPaymentPreferencesResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="PaymentPreferences" type="tns:PaymentPreferencesDto" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="DeletePaymentPreferenceRequest">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="id" type="sx:long" />
+            <sx:element name="accountId" type="sx:long" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+      <sx:element name="DeletePaymentPreferenceResponse">
+        <sx:complexType>
+          <sx:sequence>
+            <sx:element name="StatusMessage" type="tns:AccountStatusResponse" />
+          </sx:sequence>
+        </sx:complexType>
+      </sx:element>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetAccountByIdRequest">
+    <wsdl:part name="GetAccountByIdRequest" element="tns:GetAccountByIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountByIdResponse">
+    <wsdl:part name="GetAccountByIdResponse" element="tns:GetAccountByIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountPaymentPreferencesRequest">
+    <wsdl:part name="GetAccountPaymentPreferencesRequest" element="tns:GetAccountPaymentPreferencesRequest" />
+  </wsdl:message>
+  <wsdl:message name="AccountDeleteResponse">
+    <wsdl:part name="AccountDeleteResponse" element="tns:AccountDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllAccountsRequest">
+    <wsdl:part name="GetAllAccountsRequest" element="tns:GetAllAccountsRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddressUpdateResponse">
+    <wsdl:part name="AddressUpdateResponse" element="tns:AddressUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressesByAccountIdResponse">
+    <wsdl:part name="GetAddressesByAccountIdResponse" element="tns:GetAddressesByAccountIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddMasterCreditMethodResponse">
+    <wsdl:part name="AddMasterCreditMethodResponse" element="tns:AddMasterCreditMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddSafePayMethodRequest">
+    <wsdl:part name="AddSafePayMethodRequest" element="tns:AddSafePayMethodRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddressUpdateRequest">
+    <wsdl:part name="AddressUpdateRequest" element="tns:AddressUpdateRequest" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSafePayMethodResponse">
+    <wsdl:part name="UpdateSafePayMethodResponse" element="tns:UpdateSafePayMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="CountrySearchRequest">
+    <wsdl:part name="CountrySearchRequest" element="tns:CountrySearchRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddSafePayMethodResponse">
+    <wsdl:part name="AddSafePayMethodResponse" element="tns:AddSafePayMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountConfigurationResponse">
+    <wsdl:part name="GetAccountConfigurationResponse" element="tns:GetAccountConfigurationResponse" />
+  </wsdl:message>
+  <wsdl:message name="CountryCreateRequest">
+    <wsdl:part name="CountryCreateRequest" element="tns:CountryCreateRequest" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMasterCreditMethodRequest">
+    <wsdl:part name="UpdateMasterCreditMethodRequest" element="tns:UpdateMasterCreditMethodRequest" />
+  </wsdl:message>
+  <wsdl:message name="AccountCreateResponse">
+    <wsdl:part name="AccountCreateResponse" element="tns:AccountCreateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccountLogoutRequest">
+    <wsdl:part name="AccountLogoutRequest" element="tns:AccountLogoutRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddMasterCreditMethodRequest">
+    <wsdl:part name="AddMasterCreditMethodRequest" element="tns:AddMasterCreditMethodRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountConfigurationRequest">
+    <wsdl:part name="GetAccountConfigurationRequest" element="tns:GetAccountConfigurationRequest" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordRequest">
+    <wsdl:part name="ChangePasswordRequest" element="tns:ChangePasswordRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountPaymentPreferencesResponse">
+    <wsdl:part name="GetAccountPaymentPreferencesResponse" element="tns:GetAccountPaymentPreferencesResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccountLoginRequest">
+    <wsdl:part name="AccountLoginRequest" element="tns:AccountLoginRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetCountriesResponse">
+    <wsdl:part name="GetCountriesResponse" element="tns:GetCountriesResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateMasterCreditMethodResponse">
+    <wsdl:part name="UpdateMasterCreditMethodResponse" element="tns:UpdateMasterCreditMethodResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAllAccountsResponse">
+    <wsdl:part name="GetAllAccountsResponse" element="tns:GetAllAccountsResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccountCreateRequest">
+    <wsdl:part name="AccountCreateRequest" element="tns:AccountCreateRequest" />
+  </wsdl:message>
+  <wsdl:message name="CountrySearchResponse">
+    <wsdl:part name="CountrySearchResponse" element="tns:CountrySearchResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletePaymentPreferenceResponse">
+    <wsdl:part name="DeletePaymentPreferenceResponse" element="tns:DeletePaymentPreferenceResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetCountriesRequest">
+    <wsdl:part name="GetCountriesRequest" element="tns:GetCountriesRequest" />
+  </wsdl:message>
+  <wsdl:message name="AddAddressesResponse">
+    <wsdl:part name="AddAddressesResponse" element="tns:AddAddressesResponse" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountByIdNewResponse">
+    <wsdl:part name="GetAccountByIdNewResponse" element="tns:GetAccountByIdNewResponse" />
+  </wsdl:message>
+  <wsdl:message name="DeletePaymentPreferenceRequest">
+    <wsdl:part name="DeletePaymentPreferenceRequest" element="tns:DeletePaymentPreferenceRequest" />
+  </wsdl:message>
+  <wsdl:message name="ChangePasswordResponse">
+    <wsdl:part name="ChangePasswordResponse" element="tns:ChangePasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccountUpdateRequest">
+    <wsdl:part name="AccountUpdateRequest" element="tns:AccountUpdateRequest" />
+  </wsdl:message>
+  <wsdl:message name="AccountLoginResponse">
+    <wsdl:part name="AccountLoginResponse" element="tns:AccountLoginResponse" />
+  </wsdl:message>
+  <wsdl:message name="AddAddressesRequest">
+    <wsdl:part name="AddAddressesRequest" element="tns:AddAddressesRequest" />
+  </wsdl:message>
+  <wsdl:message name="AccountUpdateResponse">
+    <wsdl:part name="AccountUpdateResponse" element="tns:AccountUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="AccountDeleteRequest">
+    <wsdl:part name="AccountDeleteRequest" element="tns:AccountDeleteRequest" />
+  </wsdl:message>
+  <wsdl:message name="AccountLogoutResponse">
+    <wsdl:part name="AccountLogoutResponse" element="tns:AccountLogoutResponse" />
+  </wsdl:message>
+  <wsdl:message name="PaymentMethodUpdateResponse">
+    <wsdl:part name="PaymentMethodUpdateResponse" element="tns:PaymentMethodUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateSafePayMethodRequest">
+    <wsdl:part name="UpdateSafePayMethodRequest" element="tns:UpdateSafePayMethodRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAddressesByAccountIdRequest">
+    <wsdl:part name="GetAddressesByAccountIdRequest" element="tns:GetAddressesByAccountIdRequest" />
+  </wsdl:message>
+  <wsdl:message name="GetAccountByIdNewRequest">
+    <wsdl:part name="GetAccountByIdNewRequest" element="tns:GetAccountByIdNewRequest" />
+  </wsdl:message>
+  <wsdl:message name="PaymentMethodUpdateRequest">
+    <wsdl:part name="PaymentMethodUpdateRequest" element="tns:PaymentMethodUpdateRequest" />
+  </wsdl:message>
+  <wsdl:message name="CountryCreateResponse">
+    <wsdl:part name="CountryCreateResponse" element="tns:CountryCreateResponse" />
+  </wsdl:message>
+  <wsdl:portType name="AccountServicePort">
+    <wsdl:operation name="GetAccountById">
+      <wsdl:input name="GetAccountByIdRequest" message="tns:GetAccountByIdRequest" />
+      <wsdl:output name="GetAccountByIdResponse" message="tns:GetAccountByIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountPaymentPreferences">
+      <wsdl:input name="GetAccountPaymentPreferencesRequest" message="tns:GetAccountPaymentPreferencesRequest" />
+      <wsdl:output name="GetAccountPaymentPreferencesResponse" message="tns:GetAccountPaymentPreferencesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AccountDelete">
+      <wsdl:input name="AccountDeleteRequest" message="tns:AccountDeleteRequest" />
+      <wsdl:output name="AccountDeleteResponse" message="tns:AccountDeleteResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccounts">
+      <wsdl:input name="GetAllAccountsRequest" message="tns:GetAllAccountsRequest" />
+      <wsdl:output name="GetAllAccountsResponse" message="tns:GetAllAccountsResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddressUpdate">
+      <wsdl:input name="AddressUpdateRequest" message="tns:AddressUpdateRequest" />
+      <wsdl:output name="AddressUpdateResponse" message="tns:AddressUpdateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressesByAccountId">
+      <wsdl:input name="GetAddressesByAccountIdRequest" message="tns:GetAddressesByAccountIdRequest" />
+      <wsdl:output name="GetAddressesByAccountIdResponse" message="tns:GetAddressesByAccountIdResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddMasterCreditMethod">
+      <wsdl:input name="AddMasterCreditMethodRequest" message="tns:AddMasterCreditMethodRequest" />
+      <wsdl:output name="AddMasterCreditMethodResponse" message="tns:AddMasterCreditMethodResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddSafePayMethod">
+      <wsdl:input name="AddSafePayMethodRequest" message="tns:AddSafePayMethodRequest" />
+      <wsdl:output name="AddSafePayMethodResponse" message="tns:AddSafePayMethodResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSafePayMethod">
+      <wsdl:input name="UpdateSafePayMethodRequest" message="tns:UpdateSafePayMethodRequest" />
+      <wsdl:output name="UpdateSafePayMethodResponse" message="tns:UpdateSafePayMethodResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CountrySearch">
+      <wsdl:input name="CountrySearchRequest" message="tns:CountrySearchRequest" />
+      <wsdl:output name="CountrySearchResponse" message="tns:CountrySearchResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountConfiguration">
+      <wsdl:input name="GetAccountConfigurationRequest" message="tns:GetAccountConfigurationRequest" />
+      <wsdl:output name="GetAccountConfigurationResponse" message="tns:GetAccountConfigurationResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="CountryCreate">
+      <wsdl:input name="CountryCreateRequest" message="tns:CountryCreateRequest" />
+      <wsdl:output name="CountryCreateResponse" message="tns:CountryCreateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMasterCreditMethod">
+      <wsdl:input name="UpdateMasterCreditMethodRequest" message="tns:UpdateMasterCreditMethodRequest" />
+      <wsdl:output name="UpdateMasterCreditMethodResponse" message="tns:UpdateMasterCreditMethodResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AccountCreate">
+      <wsdl:input name="AccountCreateRequest" message="tns:AccountCreateRequest" />
+      <wsdl:output name="AccountCreateResponse" message="tns:AccountCreateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AccountLogout">
+      <wsdl:input name="AccountLogoutRequest" message="tns:AccountLogoutRequest" />
+      <wsdl:output name="AccountLogoutResponse" message="tns:AccountLogoutResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <wsdl:input name="ChangePasswordRequest" message="tns:ChangePasswordRequest" />
+      <wsdl:output name="ChangePasswordResponse" message="tns:ChangePasswordResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AccountLogin">
+      <wsdl:input name="AccountLoginRequest" message="tns:AccountLoginRequest" />
+      <wsdl:output name="AccountLoginResponse" message="tns:AccountLoginResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <wsdl:input name="GetCountriesRequest" message="tns:GetCountriesRequest" />
+      <wsdl:output name="GetCountriesResponse" message="tns:GetCountriesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="DeletePaymentPreference">
+      <wsdl:input name="DeletePaymentPreferenceRequest" message="tns:DeletePaymentPreferenceRequest" />
+      <wsdl:output name="DeletePaymentPreferenceResponse" message="tns:DeletePaymentPreferenceResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AddAddresses">
+      <wsdl:input name="AddAddressesRequest" message="tns:AddAddressesRequest" />
+      <wsdl:output name="AddAddressesResponse" message="tns:AddAddressesResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountByIdNew">
+      <wsdl:input name="GetAccountByIdNewRequest" message="tns:GetAccountByIdNewRequest" />
+      <wsdl:output name="GetAccountByIdNewResponse" message="tns:GetAccountByIdNewResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="AccountUpdate">
+      <wsdl:input name="AccountUpdateRequest" message="tns:AccountUpdateRequest" />
+      <wsdl:output name="AccountUpdateResponse" message="tns:AccountUpdateResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="PaymentMethodUpdate">
+      <wsdl:input name="PaymentMethodUpdateRequest" message="tns:PaymentMethodUpdateRequest" />
+      <wsdl:output name="PaymentMethodUpdateResponse" message="tns:PaymentMethodUpdateResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="AccountServicePortSoap11" type="tns:AccountServicePort">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetAccountById">
+      <soap:operation soapAction="" />
+      <wsdl:input name="GetAccountByIdRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAccountByIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountPaymentPreferences">
+      <soap:operation soapAction="" />
+      <wsdl:input name="GetAccountPaymentPreferencesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAccountPaymentPreferencesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountDelete">
+      <soap:operation soapAction="" />
+      <wsdl:input name="AccountDeleteRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AccountDeleteResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllAccounts">
+      <soap:operation soapAction="" />
+      <wsdl:input name="GetAllAccountsRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAllAccountsResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddressUpdate">
+      <soap:operation soapAction="" />
+      <wsdl:input name="AddressUpdateRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AddressUpdateResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAddressesByAccountId">
+      <soap:operation soapAction="" />
+      <wsdl:input name="GetAddressesByAccountIdRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAddressesByAccountIdResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddMasterCreditMethod">
+      <soap:operation soapAction="" />
+      <wsdl:input name="AddMasterCreditMethodRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AddMasterCreditMethodResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddSafePayMethod">
+      <soap:operation soapAction="" />
+      <wsdl:input name="AddSafePayMethodRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AddSafePayMethodResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSafePayMethod">
+      <soap:operation soapAction="" />
+      <wsdl:input name="UpdateSafePayMethodRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UpdateSafePayMethodResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountrySearch">
+      <soap:operation soapAction="" />
+      <wsdl:input name="CountrySearchRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CountrySearchResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountConfiguration">
+      <soap:operation soapAction="" />
+      <wsdl:input name="GetAccountConfigurationRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAccountConfigurationResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CountryCreate">
+      <soap:operation soapAction="" />
+      <wsdl:input name="CountryCreateRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="CountryCreateResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateMasterCreditMethod">
+      <soap:operation soapAction="" />
+      <wsdl:input name="UpdateMasterCreditMethodRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="UpdateMasterCreditMethodResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountCreate">
+      <soap:operation soapAction="" />
+      <wsdl:input name="AccountCreateRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AccountCreateResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountLogout">
+      <soap:operation soapAction="" />
+      <wsdl:input name="AccountLogoutRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AccountLogoutResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePassword">
+      <soap:operation soapAction="" />
+      <wsdl:input name="ChangePasswordRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ChangePasswordResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountLogin">
+      <soap:operation soapAction="" />
+      <wsdl:input name="AccountLoginRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AccountLoginResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCountries">
+      <soap:operation soapAction="" />
+      <wsdl:input name="GetCountriesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetCountriesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeletePaymentPreference">
+      <soap:operation soapAction="" />
+      <wsdl:input name="DeletePaymentPreferenceRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="DeletePaymentPreferenceResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddAddresses">
+      <soap:operation soapAction="" />
+      <wsdl:input name="AddAddressesRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AddAddressesResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAccountByIdNew">
+      <soap:operation soapAction="" />
+      <wsdl:input name="GetAccountByIdNewRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="GetAccountByIdNewResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccountUpdate">
+      <soap:operation soapAction="" />
+      <wsdl:input name="AccountUpdateRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="AccountUpdateResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="PaymentMethodUpdate">
+      <soap:operation soapAction="" />
+      <wsdl:input name="PaymentMethodUpdateRequest">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="PaymentMethodUpdateResponse">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="AccountServicePortService">
+    <wsdl:port name="AccountServicePortSoap11" binding="tns:AccountServicePortSoap11">
+      <soap:address location="http://www.advantageonlineshopping.com:80/accountservice/" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,35 @@
+The following jars needed to be in the build path of the "Cucumber" project
+
+cucumber_jars
+	|_cucumber-core-1.2.2.jar
+	|_cucumber-html-0.2.3.jar
+	|_cucumber-java-1.2.2.jar
+	|_cucumber-junit-1.2.2.jar
+	|_cucumber-jvm-deps-1.0.3.jar
+	|_gherkin-2.12.2.jar
+
+selenium-2.53.1
+     |_selenium-java-2.53.1.jar
+     |_libs
+          |_gson2.3.1.jar
+          |_guava-19.0.jar
+          |_httpclient-4.5.1.jar
+          |_httpcore-4.4.3.jar
+          |_junit-4.12.jar
+
+
+Jars needed fro the "LeanftDemoJava" project
+Apache_POI
+  |_poi-*-3.14-20160307
+
+These jars can be installed using Eclipse->Help->Market Place
+search for 'TestNG'
+Select 'TestNG for Eclipse'
+C:\Users\Administrator\.p2\pool\plugins\org.testng.eclipse_6.9.12.201607091356\lib
+     |_jcommander.jar
+     |_testng.jar
+
+It is nice to add the following using Eclipse->Help->Install New Software
+http://cucumber.github.io/cucumber-eclipse/update-site/
+   or
+http://cucumber.github.com/cucumber-eclipse/update-site/

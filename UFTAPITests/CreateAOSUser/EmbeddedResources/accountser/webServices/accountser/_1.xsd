@@ -1,0 +1,530 @@
+<?xml version="1.0"?>
+<sx:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sx="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="com.advantage.online.store.accountservice">
+  <xs:complexType name="AccountStatusResponse">
+    <xs:sequence>
+      <xs:element name="success" type="xs:boolean" />
+      <xs:element name="userId" type="xs:long" />
+      <xs:element name="reason" type="xs:string" />
+      <xs:element name="token" type="xs:string" />
+      <xs:element name="sessionId" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CountryStatusResponse">
+    <xs:sequence>
+      <xs:element name="reason" type="xs:string" />
+      <xs:element name="success" type="xs:boolean" />
+      <xs:element name="countryId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PaymentPreferencesStatusResponse">
+    <xs:sequence>
+      <xs:element name="reason" type="xs:string" />
+      <xs:element name="success" type="xs:boolean" />
+      <xs:element name="id" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="account" />
+  <xs:complexType name="country" />
+  <xs:complexType name="AddressStatusResponse">
+    <xs:sequence>
+      <xs:element name="reason" type="xs:string" />
+      <xs:element name="success" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAccountConfigurationResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element form="qualified" name="numberOfFailedLoginAttemptsBeforeBlocking" type="xs:int" />
+        <xs:element form="qualified" name="loginBlockingIntervalInSeconds" type="xs:long" />
+        <xs:element form="qualified" name="productInStockDefaultValue" type="xs:int" />
+        <xs:element form="qualified" name="userSecondWsdl" type="xs:boolean" />
+        <xs:element form="qualified" name="userLoginTimeout" type="xs:int" />
+        <xs:element form="qualified" name="allowUserConfiguration" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AccountDto">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" />
+      <xs:element name="lastName" type="xs:string" />
+      <xs:element name="firstName" type="xs:string" />
+      <xs:element name="loginName" type="xs:string" />
+      <xs:element name="accountType" type="xs:int" />
+      <xs:element name="countryId" type="xs:long" />
+      <xs:element name="countryName" type="xs:string" />
+      <xs:element name="countryIsoName" type="xs:string" />
+      <xs:element name="stateProvince" type="xs:string" />
+      <xs:element name="cityName" type="xs:string" />
+      <xs:element name="address" type="xs:string" />
+      <xs:element name="zipcode" type="xs:string" />
+      <xs:element name="phoneNumber" type="xs:string" />
+      <xs:element name="email" type="xs:string" />
+      <xs:element name="defaultPaymentMethodId" type="xs:long" />
+      <xs:element name="allowOffersPromotion" type="xs:boolean" />
+      <xs:element name="internalUnsuccessfulLoginAttempts" type="xs:int" />
+      <xs:element name="internalUserBlockedFromLoginUntil" type="xs:long" />
+      <xs:element name="internalLastSuccesssulLogin" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AccountDtoNew">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" />
+      <xs:element name="lastName" type="xs:string" />
+      <xs:element name="firstName" type="xs:string" />
+      <xs:element name="loginName" type="xs:string" />
+      <xs:element name="accountType" type="xs:int" />
+      <xs:element name="countryId" type="xs:long" />
+      <xs:element name="countryName" type="xs:string" />
+      <xs:element name="countryIsoName" type="xs:string" />
+      <xs:element name="stateProvince" type="xs:string" />
+      <xs:element name="cityName" type="xs:string" />
+      <xs:element name="address" type="xs:string" />
+      <xs:element name="zipcode" type="xs:string" />
+      <xs:element name="phoneNumber" type="xs:string" />
+      <xs:element name="email" type="xs:string" />
+      <xs:element name="defaultPaymentMethodId" type="xs:long" />
+      <xs:element name="allowOffersPromotion" type="xs:boolean" />
+      <xs:element name="internalUnsuccessfulLoginAttempts" type="xs:int" />
+      <xs:element name="internalUserBlockedFromLoginUntil" type="xs:long" />
+      <xs:element name="internalLastSuccesssulLogin" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAllAccountsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="account" xmlns:q1="com.advantage.online.store.accountservice" type="q1:AccountDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="AddressDto">
+    <xs:sequence>
+      <xs:element form="qualified" name="id" nillable="true" type="xs:long" />
+      <xs:element form="qualified" name="addressLine1" type="xs:string" />
+      <xs:element form="qualified" name="addressLine2" type="xs:string" />
+      <xs:element form="qualified" name="city" type="xs:string" />
+      <xs:element form="qualified" name="country" type="xs:string" />
+      <xs:element form="qualified" name="state" type="xs:string" />
+      <xs:element form="qualified" name="postalCode" type="xs:string" />
+      <xs:element form="qualified" name="accountId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="UpdateAddressDto">
+    <xs:sequence>
+      <xs:element form="qualified" name="id" nillable="true" type="xs:long" />
+      <xs:element form="qualified" name="addressLine1" type="xs:string" />
+      <xs:element form="qualified" name="addressLine2" type="xs:string" />
+      <xs:element form="qualified" name="city" type="xs:string" />
+      <xs:element form="qualified" name="country" type="xs:string" />
+      <xs:element form="qualified" name="state" type="xs:string" />
+      <xs:element form="qualified" name="postalCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AddAddressDto">
+    <xs:sequence>
+      <xs:element form="qualified" name="addressLine1" type="xs:string" />
+      <xs:element form="qualified" name="addressLine2" type="xs:string" />
+      <xs:element form="qualified" name="city" type="xs:string" />
+      <xs:element form="qualified" name="country" type="xs:string" />
+      <xs:element form="qualified" name="state" type="xs:string" />
+      <xs:element form="qualified" name="postalCode" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAllAccountsRequest">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCountriesRequest">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountConfigurationRequest">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="CountryDto">
+    <xs:sequence>
+      <xs:element name="id" type="xs:long" />
+      <xs:element name="name" type="xs:string" />
+      <xs:element name="isoName" type="xs:string" />
+      <xs:element name="phonePrefix" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetCountriesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="Country" xmlns:q2="com.advantage.online.store.accountservice" type="q2:CountryDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountrySearchResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="Country" xmlns:q3="com.advantage.online.store.accountservice" type="q3:CountryDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddressesByAccountIdRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="accountId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountByIdRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="accountId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountByIdNewResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AccountResponse" xmlns:q4="com.advantage.online.store.accountservice" type="q4:AccountDtoNew" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountByIdNewRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="accountId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountByIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="AccountResponse" xmlns:q5="com.advantage.online.store.accountservice" type="q5:AccountDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAddressesByAccountIdResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" name="ShippingAddress" xmlns:q6="com.advantage.online.store.accountservice" type="q6:AccountDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccountCreateRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="lastName" type="xs:string" />
+        <xs:element name="firstName" type="xs:string" />
+        <xs:element name="loginName" type="xs:string" />
+        <xs:element name="countryId" type="xs:long" />
+        <xs:element name="stateProvince" type="xs:string" />
+        <xs:element name="cityName" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="zipcode" type="xs:string" />
+        <xs:element name="phoneNumber" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="password" type="xs:string" />
+        <xs:element name="accountType" type="xs:int" />
+        <xs:element name="allowOffersPromotion" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccountCreateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatusMessage" xmlns:q7="com.advantage.online.store.accountservice" type="q7:AccountStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccountDeleteRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element form="qualified" name="accountId" type="xs:long" />
+        <xs:element form="qualified" name="base64Token" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccountDeleteResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element form="qualified" name="StatusMessage">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element form="qualified" name="success" type="xs:boolean" />
+              <xs:element form="qualified" name="userId" type="xs:long" />
+              <xs:element form="qualified" name="reason" type="xs:string" />
+              <xs:element form="qualified" name="token" type="xs:string" />
+              <xs:element form="qualified" name="sessionId" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccountUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatusMessage" xmlns:q8="com.advantage.online.store.accountservice" type="q8:AccountStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatusMessage" xmlns:q9="com.advantage.online.store.accountservice" type="q9:AccountStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccountUpdateRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="lastName" type="xs:string" />
+        <xs:element name="firstName" type="xs:string" />
+        <xs:element name="accountId" type="xs:long" />
+        <xs:element name="countryId" type="xs:long" />
+        <xs:element name="stateProvince" type="xs:string" />
+        <xs:element name="cityName" type="xs:string" />
+        <xs:element name="address" type="xs:string" />
+        <xs:element name="zipcode" type="xs:string" />
+        <xs:element name="phoneNumber" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="accountType" type="xs:int" />
+        <xs:element name="allowOffersPromotion" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountryCreateRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="name" type="xs:string" />
+        <xs:element name="isoName" type="xs:string" />
+        <xs:element name="phonePrefix" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountrySearchRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="internationalPhonePrefix" type="xs:int" />
+        <xs:element name="startOfName" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CountryCreateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatusMessage" xmlns:q10="com.advantage.online.store.accountservice" type="q10:CountryStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccountLoginRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="loginUser" type="xs:string" />
+        <xs:element name="email" type="xs:string" />
+        <xs:element name="loginPassword" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccountLoginResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatusMessage" xmlns:q11="com.advantage.online.store.accountservice" type="q11:AccountStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccountLogoutRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="loginUser" type="xs:string" />
+        <xs:element name="base64Token" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccountLogoutResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatusMessage" xmlns:q12="com.advantage.online.store.accountservice" type="q12:AccountStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PaymentMethodUpdateRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="accountId" type="xs:long" />
+        <xs:element name="paymentMethod" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="PaymentMethodUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatusMessage" xmlns:q13="com.advantage.online.store.accountservice" type="q13:AccountStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAddressesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" form="qualified" name="address" xmlns:q14="com.advantage.online.store.accountservice" type="q14:AddAddressDto" />
+        <xs:element name="accountId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddAddressesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatusMessage" xmlns:q15="com.advantage.online.store.accountservice" type="q15:AddressStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddressUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatusMessage" xmlns:q16="com.advantage.online.store.accountservice" type="q16:AddressStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddressUpdateRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="address" xmlns:q17="com.advantage.online.store.accountservice" type="q17:UpdateAddressDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="accountId" type="xs:long" />
+        <xs:element name="oldPassword" type="xs:string" />
+        <xs:element name="newPassword" type="xs:string" />
+        <xs:element name="base64Token" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSafePayMethodRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="accountId" type="xs:long" />
+        <xs:element name="safePayUsername" type="xs:string" />
+        <xs:element name="safePayPassword" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddSafePayMethodResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatusMessage" xmlns:q18="com.advantage.online.store.accountservice" type="q18:PaymentPreferencesStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMasterCreditMethodRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="cardNumber" type="xs:string" />
+        <xs:element name="expirationDate" type="xs:string" />
+        <xs:element name="cvvNumber" type="xs:string" />
+        <xs:element name="customerName" type="xs:string" />
+        <xs:element name="accountId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddMasterCreditMethodResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatusMessage" xmlns:q19="com.advantage.online.store.accountservice" type="q19:PaymentPreferencesStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSafePayMethodRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="userId" type="xs:long" />
+        <xs:element name="safePayUsername" type="xs:string" />
+        <xs:element name="safePayPassword" type="xs:string" />
+        <xs:element name="referenceId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSafePayMethodResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element form="qualified" name="StatusMessage">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element form="qualified" name="success" type="xs:boolean" />
+              <xs:element form="qualified" name="id" type="xs:long" />
+              <xs:element form="qualified" name="reason" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMasterCreditMethodRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="userId" type="xs:long" />
+        <xs:element name="cardNumber" type="xs:string" />
+        <xs:element name="expirationDate" type="xs:string" />
+        <xs:element name="cvvNumber" type="xs:string" />
+        <xs:element name="customerName" type="xs:string" />
+        <xs:element name="referenceId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateMasterCreditMethodResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element form="qualified" name="StatusMessage">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element form="qualified" name="success" type="xs:boolean" />
+              <xs:element form="qualified" name="id" type="xs:long" />
+              <xs:element form="qualified" name="reason" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:complexType name="PaymentPreferencesDto">
+    <xs:sequence>
+      <xs:element name="paymentMethod" type="xs:int" />
+      <xs:element name="cardNumber" type="xs:string" />
+      <xs:element name="expirationDate" type="xs:string" />
+      <xs:element name="cvvNumber" type="xs:string" />
+      <xs:element name="safePayUsername" type="xs:string" />
+      <xs:element name="safePayPassword" type="xs:string" />
+      <xs:element name="customerName" type="xs:string" />
+      <xs:element name="preferenceId" type="xs:long" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GetAccountPaymentPreferencesRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="accountId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAccountPaymentPreferencesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="PaymentPreferences" xmlns:q20="com.advantage.online.store.accountservice" type="q20:PaymentPreferencesDto" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePaymentPreferenceRequest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="id" type="xs:long" />
+        <xs:element name="accountId" type="xs:long" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeletePaymentPreferenceResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name="StatusMessage" xmlns:q21="com.advantage.online.store.accountservice" type="q21:AccountStatusResponse" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</sx:schema>
