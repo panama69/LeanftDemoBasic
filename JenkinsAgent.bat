@@ -1,4 +1,4 @@
-echo off
+@echo off
 set JENKINS_URL=%ComputerName%
 set JENKINS_PORT="8080"
 
@@ -13,6 +13,7 @@ findstr /c:"X-Jenkins" header.txt 1> NUL
 
 if %ERRORLEVEL% EQU 0 (
    del header.txt
+   rem sleep for a moment for the jar save to be finalized
    timeout /t 2 /nobreak > NUL
    rem removed the following as want to place slave.jar in folder other than current
    rem curl -O http://localhost:8080/jnlpJars/slave.jar
