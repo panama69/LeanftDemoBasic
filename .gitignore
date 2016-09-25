@@ -119,3 +119,8 @@ local.properties
 #LeanFT
 RunResults/
 test-output/
+
+#Ignor folders created to successfully run the demo script with Excel and Selenium
+Apache_POI/
+cucumber_jars/
+selenium-2.53.1/
