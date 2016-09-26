@@ -37,15 +37,15 @@ import org.apache.poi.ss.usermodel.Row;
 @SuppressWarnings("unused")
 public class LeanFtTest extends UnitTestClassBase {
 
-	String PROJECT_BASE = "C:\\Users\\Administrator\\DemoWorkspace";
-    String USER_LIST_EXCEL_PATH = PROJECT_BASE+"\\DataSources\\AOS_Users.xls";
-    String CREATE_USER_UFT_API_TEST = PROJECT_BASE+"\\UFTAPITests\\CreateAOSUser";
+	String PROJECT_BASE = System.getProperty("user.dir");
+    String USER_LIST_EXCEL_PATH = PROJECT_BASE+"\\..\\DataSources\\AOS_Users.xls";
+    String CREATE_USER_UFT_API_TEST = PROJECT_BASE+"\\..\\UFTAPITests\\CreateAOSUser";
 
     static String userName;
 
     @BeforeSuite
     public void beforeSuite() throws IOException, GeneralLeanFtException {
-
+    	System.out.println("Project Base:"+PROJECT_BASE);
         userName = getUserNameFromExcel();
         createNewUserInAOS();
     }
@@ -56,8 +56,8 @@ public class LeanFtTest extends UnitTestClassBase {
 
     @Test
     @Parameters({"browser-name"})
-    public void BuyTabletTest(String browserName) throws GeneralLeanFtException, IOException {
-    //public void BuyTabletTest() throws GeneralLeanFtException, IOException {	
+    //public void BuyTabletTest(String browserName) throws GeneralLeanFtException, IOException {
+    public void BuyTabletTest() throws GeneralLeanFtException, IOException {	
         //Launch Browser
         //Browser browser = BrowserFactory.launch(BrowserType.valueOf(browserName));
     	Browser browser = BrowserFactory.launch(BrowserType.CHROME);
@@ -70,11 +70,9 @@ public class LeanFtTest extends UnitTestClassBase {
 
         
         //Click the "Tablets" category
-
         
         
         //Click the price of the first tablet
-
         
         
         //Click the "Add to Cart" button
@@ -95,12 +93,12 @@ public class LeanFtTest extends UnitTestClassBase {
         //Full user details and complete purchase
         DemoAppModel appModel = new DemoAppModel(browser);
 
-/*      //appModel.AdvantageShoppingPage().UserName().setValue(getUserNameFromExcel());
-        appModel.AdvantageShoppingPage().UserName().setValue("demo_user");
+        appModel.AdvantageShoppingPage().UserName().setValue(getUserNameFromExcel());
+        //appModel.AdvantageShoppingPage().UserName().setValue("demo_user");
         appModel.AdvantageShoppingPage().Password().setValue("Aa1234");
         appModel.AdvantageShoppingPage().Password().click();
         appModel.AdvantageShoppingPage().LoginBtn().click();
- */       
+        
         
         browser.close();
     }
@@ -132,6 +130,7 @@ public class LeanFtTest extends UnitTestClassBase {
         Map<String, Object> inParams = new HashMap<String, Object>();
         inParams.put("UserName", userName);
 
+        System.out.println("UFT: "+CREATE_USER_UFT_API_TEST);
         APITestResult result = APITestRunner.run(CREATE_USER_UFT_API_TEST, inParams);
     }
 

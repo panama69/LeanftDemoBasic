@@ -19,28 +19,6 @@
                         </properties>
                     </identification>
                 </object>
-                <object type="EditField" technology="Web">
-                    <name>orderPaymenLogin_username</name>
-                    <codeName>UserName</codeName>
-                    <identification>
-                        <properties>
-                            <property name="Type" type="string" isRegExp="false">text</property>
-                            <property name="TagName" type="string" isRegExp="false">INPUT</property>
-                            <property name="Name" type="string" isRegExp="false">orderPaymenLogin_username</property>
-                        </properties>
-                    </identification>
-                </object>
-                <object type="EditField" technology="Web">
-                    <name>orderPaymenLogin_password</name>
-                    <codeName>Password</codeName>
-                    <identification>
-                        <properties>
-                            <property name="Type" type="string" isRegExp="false">password</property>
-                            <property name="TagName" type="string" isRegExp="false">INPUT</property>
-                            <property name="Name" type="string" isRegExp="false">orderPaymenLogin_password</property>
-                        </properties>
-                    </identification>
-                </object>
             </children>
         </object>
     </objects>
