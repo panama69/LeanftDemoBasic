@@ -109,6 +109,13 @@ copy %HOME%\LeanftDemoJava\TestNG.xml %DEMO_JARS_BASE%\TestExecution
 copy %HOME%\TestExecution %DEMO_JARS_BASE%\TestExecution
 
 echo ##
+echo ## copy Datasources and UFTAPITests %DEMO_JARS_BASE%
+echo ##
+mkdir %DEMO_JARS_BASE%\DataSources
+copy %HOME%\DataSources\*.* %DEMO_JARS_BASE%\DataSources
+xcopy /E /Y %HOME%\UFTAPITests 
+
+echo ##
 echo ## setting up Jenkins
 echo ##
 cd %HOME%

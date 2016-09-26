@@ -28,7 +28,7 @@ set TESTNG=&quot;C:\Users\Administrator\.p2\pool\plugins\org.testng.eclipse_6.9.
 &#xd;
 cd &quot;%JARBASE%\TestExecution&quot;&#xd;
 &#xd;
-java -cp &quot;%JARBASE%\Apache_POI\*;%JARBASE%\LftSdk\*;%TESTNG%\tesng.jar;%TESTNG%\jcommander.jar;*;LeanftDemoJava.jar&quot; org.testng.TestNG testng.xml&#xd;
+java -cp &quot;%JARBASE%\Apache_POI\*;%JARBASE%\LftSdk\*;%TESTNG%\testng.jar;%TESTNG%\jcommander.jar;*;LeanftDemoJava.jar&quot; org.testng.TestNG testng.xml&#xd;
 &#xd;
 xcopy /y /s RunResults &quot;%WORKSPACE%\RunResults\&quot;</command>
     </hudson.tasks.BatchFile>
