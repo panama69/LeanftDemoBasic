@@ -55,7 +55,7 @@ $RECYCLE.BIN/
 
 # Windows Installer files
 *.cab
-#*.msi
+#*.msi #need for the curl msi installer that is part of the project
 *.msm
 *.msp
 
@@ -81,40 +81,19 @@ local.properties
 #.project
 
 # External tool builders
-.externalToolBuilders/
+#.externalToolBuilders/
 
 # Locally stored "Eclipse launch configurations"
-*.launch
-
-# PyDev specific (Python IDE for Eclipse)
-*.pydevproject
-
-# CDT-specific (C/C++ Development Tooling)
-.cproject
+#*.launch
 
 # JDT-specific (Eclipse Java Development Tools)
 #.classpath
 
 # Java annotation processor (APT)
-.factorypath
+#.factorypath
 
 # PDT-specific (PHP Development Tools)
-.buildpath
-
-# sbteclipse plugin
-.target
-
-# Tern plugin
-.tern-project
-
-# TeXlipse plugin
-.texlipse
-
-# STS (Spring Tool Suite)
-.springBeans
-
-# Code Recommenders
-.recommenders/
+#.buildpath
 
 #LeanFT
 RunResults/
@@ -127,3 +106,7 @@ selenium-2.53.1/
 
 #ignor file used to determine Jenkins location
 header.txt
+
+#UFT ignore
+/Result*
+*.log
