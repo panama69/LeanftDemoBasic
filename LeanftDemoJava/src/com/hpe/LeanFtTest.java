@@ -61,7 +61,6 @@ public class LeanFtTest extends UnitTestClassBase {
         //Launch Browser
         //Browser browser = BrowserFactory.launch(BrowserType.valueOf(browserName));
     	Browser browser = BrowserFactory.launch(BrowserType.CHROME);
-
     	
         //Navigate to Advantage Online Shopping 
     	// should use port 8080 for this test
