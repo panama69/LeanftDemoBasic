@@ -38,7 +38,6 @@ echo ##
 cd %DEMO_JARS_BASE%
 %CURL_BASE%\curl.exe -O http://selenium-release.storage.googleapis.com/2.53/selenium-java-2.53.1.zip
 unzip -o selenium-java-2.53.1.zip
-unzip -o testng-6.9.9.jar
 del selenium-java-2.53.1.zip
 
 echo ##
