@@ -8,8 +8,9 @@ msiexec.exe /i utilities\curl-7.46.0-win64-local.msi /passive
 
 set CURL_BASE="%appdata%\..\Local\Apps\cURL\bin"
 set HOME=%cd%
-mkdir %userprofile%\LeanftBasicDemoJars
-set DEMO_JARS_BASE="%userprofile%\LeanftBasicDemoJars"
+mkdir c:\tmp
+mkdir c:\tmp\LeanftBasicDemoJars
+set DEMO_JARS_BASE="c:\tmp\LeanftBasicDemoJars"
 
 echo ##
 echo ## Pulling and extracing jars to work with Excel
