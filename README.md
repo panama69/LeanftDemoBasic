@@ -3,11 +3,11 @@ All the components to perform a basic LFT demo along with making call to Excel f
 
 # Getting the demo
 Assumptions
-  1. You have some form of Git on your machine.
+  1. You have some form of Git on your machine
   2. You are using demo image ADM_1253 v5
-  3. The instructions assume you are performing a clone and not a zip download.
+  3. The instructions assume you are performing a clone and not a zip download
 
-Steps.
+
 1. git clone -v https://github.com/panama69/LeanftDemoBasic.git
 2. Open Eclipse and install TestNG
   * Eclipse->Help->Eclipse Marketplace.
