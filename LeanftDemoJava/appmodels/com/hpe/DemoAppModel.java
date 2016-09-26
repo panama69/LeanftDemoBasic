@@ -96,15 +96,15 @@ public class DemoAppModel extends AppModelBase {		private AdvantageShoppingPage 
 
 
 		@Override 
-		public java.awt.Rectangle[] getTextLocations(java.lang.String arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
-		{
-			return getConcrete().getTextLocations(arg0);
-		}
-
-		@Override 
 		public java.awt.Rectangle[] getTextLocations(java.lang.String arg0, java.awt.Rectangle arg1) throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
 			return getConcrete().getTextLocations(arg0, arg1);
+		}
+
+		@Override 
+		public java.awt.Rectangle[] getTextLocations(java.lang.String arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
+		{
+			return getConcrete().getTextLocations(arg0);
 		}
 
 		@Override 
@@ -138,15 +138,15 @@ public class DemoAppModel extends AppModelBase {		private AdvantageShoppingPage 
 		}
 
 		@Override 
-		public java.awt.Point verifyImageExists(java.awt.image.RenderedImage arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
-		{
-			return getConcrete().verifyImageExists(arg0);
-		}
-
-		@Override 
 		public java.awt.Point verifyImageExists(java.awt.image.RenderedImage arg0, byte arg1) throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
 			return getConcrete().verifyImageExists(arg0, arg1);
+		}
+
+		@Override 
+		public java.awt.Point verifyImageExists(java.awt.image.RenderedImage arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
+		{
+			return getConcrete().verifyImageExists(arg0);
 		}
 
 		@Override 
@@ -174,27 +174,21 @@ public class DemoAppModel extends AppModelBase {		private AdvantageShoppingPage 
 		}
 
 		@Override 
-		public boolean exists(java.lang.Integer arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
-		{
-			return getConcrete().exists(arg0);
-		}
-
-		@Override 
 		public boolean exists() throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
 			return getConcrete().exists();
 		}
 
 		@Override 
-		public boolean verifyImageMatch(java.awt.image.RenderedImage arg0, com.hp.lft.sdk.ImageMaskArea arg1, byte arg2, byte arg3) throws com.hp.lft.sdk.GeneralLeanFtException 
+		public boolean exists(java.lang.Integer arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
-			return getConcrete().verifyImageMatch(arg0, arg1, arg2, arg3);
+			return getConcrete().exists(arg0);
 		}
 
 		@Override 
-		public boolean verifyImageMatch(java.awt.image.RenderedImage arg0, byte arg1) throws com.hp.lft.sdk.GeneralLeanFtException 
+		public com.hp.lft.sdk.NativeObject getNativeObject() throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
-			return getConcrete().verifyImageMatch(arg0, arg1);
+			return getConcrete().getNativeObject();
 		}
 
 		@Override 
@@ -204,7 +198,19 @@ public class DemoAppModel extends AppModelBase {		private AdvantageShoppingPage 
 		}
 
 		@Override 
-		public boolean verifyImageMatch(java.awt.image.RenderedImage arg0, com.hp.lft.sdk.ImageMaskArea arg1) throws com.hp.lft.sdk.GeneralLeanFtException 
+		public boolean verifyImageMatch(java.awt.image.RenderedImage arg0, com.hp.lft.sdk.ImageMaskArea arg1, byte arg2, byte arg3) throws com.hp.lft.sdk.GeneralLeanFtException 
+		{
+			return getConcrete().verifyImageMatch(arg0, arg1, arg2, arg3);
+		}
+
+		@Override 
+		public boolean verifyImageMatch(java.awt.image.RenderedImage arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
+		{
+			return getConcrete().verifyImageMatch(arg0);
+		}
+
+		@Override 
+		public boolean verifyImageMatch(java.awt.image.RenderedImage arg0, byte arg1) throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
 			return getConcrete().verifyImageMatch(arg0, arg1);
 		}
@@ -216,21 +222,15 @@ public class DemoAppModel extends AppModelBase {		private AdvantageShoppingPage 
 		}
 
 		@Override 
-		public boolean verifyImageMatch(java.awt.image.RenderedImage arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
+		public boolean verifyImageMatch(java.awt.image.RenderedImage arg0, com.hp.lft.sdk.ImageMaskArea arg1) throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
-			return getConcrete().verifyImageMatch(arg0);
+			return getConcrete().verifyImageMatch(arg0, arg1);
 		}
 
 		@Override 
 		public java.awt.Point getAbsoluteLocation() throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
 			return getConcrete().getAbsoluteLocation();
-		}
-
-		@Override 
-		public com.hp.lft.sdk.NativeObject getNativeObject() throws com.hp.lft.sdk.GeneralLeanFtException 
-		{
-			return getConcrete().getNativeObject();
 		}
 
 		@Override 
@@ -299,15 +299,15 @@ public class DemoAppModel extends AppModelBase {		private AdvantageShoppingPage 
 
 
 		@Override 
-		public java.awt.Rectangle[] getTextLocations(java.lang.String arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
-		{
-			return getConcrete().getTextLocations(arg0);
-		}
-
-		@Override 
 		public java.awt.Rectangle[] getTextLocations(java.lang.String arg0, java.awt.Rectangle arg1) throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
 			return getConcrete().getTextLocations(arg0, arg1);
+		}
+
+		@Override 
+		public java.awt.Rectangle[] getTextLocations(java.lang.String arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
+		{
+			return getConcrete().getTextLocations(arg0);
 		}
 
 		@Override 
@@ -437,27 +437,27 @@ public class DemoAppModel extends AppModelBase {		private AdvantageShoppingPage 
 		}
 
 		@Override 
-		public void hoverTap(com.hp.lft.sdk.Location arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
-		{
-			getConcrete().hoverTap(arg0);
-		}
-
-		@Override 
 		public void hoverTap() throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
 			getConcrete().hoverTap();
 		}
 
 		@Override 
-		public boolean isEnabled() throws com.hp.lft.sdk.GeneralLeanFtException 
+		public void hoverTap(com.hp.lft.sdk.Location arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
-			return getConcrete().isEnabled();
+			getConcrete().hoverTap(arg0);
 		}
 
 		@Override 
 		public java.util.Map<java.lang.String, java.lang.String> getAttributes() throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
 			return getConcrete().getAttributes();
+		}
+
+		@Override 
+		public boolean isEnabled() throws com.hp.lft.sdk.GeneralLeanFtException 
+		{
+			return getConcrete().isEnabled();
 		}
 
 		@Override 
@@ -485,21 +485,15 @@ public class DemoAppModel extends AppModelBase {		private AdvantageShoppingPage 
 		}
 
 		@Override 
-		public java.awt.Point verifyImageExists(java.awt.image.RenderedImage arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
-		{
-			return getConcrete().verifyImageExists(arg0);
-		}
-
-		@Override 
 		public java.awt.Point verifyImageExists(java.awt.image.RenderedImage arg0, byte arg1) throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
 			return getConcrete().verifyImageExists(arg0, arg1);
 		}
 
 		@Override 
-		public java.lang.String getText() throws com.hp.lft.sdk.GeneralLeanFtException 
+		public java.awt.Point verifyImageExists(java.awt.image.RenderedImage arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
-			return getConcrete().getText();
+			return getConcrete().verifyImageExists(arg0);
 		}
 
 		@Override 
@@ -515,13 +509,19 @@ public class DemoAppModel extends AppModelBase {		private AdvantageShoppingPage 
 		}
 
 		@Override 
-		public void swipe(com.hp.lft.sdk.SwipeDirection arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
+		public java.lang.String getText() throws com.hp.lft.sdk.GeneralLeanFtException 
+		{
+			return getConcrete().getText();
+		}
+
+		@Override 
+		public void swipe(com.hp.lft.sdk.web.WebSwipeArgs arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
 			getConcrete().swipe(arg0);
 		}
 
 		@Override 
-		public void swipe(com.hp.lft.sdk.web.WebSwipeArgs arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
+		public void swipe(com.hp.lft.sdk.SwipeDirection arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
 			getConcrete().swipe(arg0);
 		}
@@ -533,15 +533,15 @@ public class DemoAppModel extends AppModelBase {		private AdvantageShoppingPage 
 		}
 
 		@Override 
-		public void doubleClick() throws com.hp.lft.sdk.GeneralLeanFtException 
-		{
-			getConcrete().doubleClick();
-		}
-
-		@Override 
 		public void doubleClick(com.hp.lft.sdk.web.WebDoubleClickArgs arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
 			getConcrete().doubleClick(arg0);
+		}
+
+		@Override 
+		public void doubleClick() throws com.hp.lft.sdk.GeneralLeanFtException 
+		{
+			getConcrete().doubleClick();
 		}
 
 		@Override 
@@ -551,27 +551,21 @@ public class DemoAppModel extends AppModelBase {		private AdvantageShoppingPage 
 		}
 
 		@Override 
-		public boolean exists(java.lang.Integer arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
-		{
-			return getConcrete().exists(arg0);
-		}
-
-		@Override 
 		public boolean exists() throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
 			return getConcrete().exists();
 		}
 
 		@Override 
-		public boolean verifyImageMatch(java.awt.image.RenderedImage arg0, com.hp.lft.sdk.ImageMaskArea arg1, byte arg2, byte arg3) throws com.hp.lft.sdk.GeneralLeanFtException 
+		public boolean exists(java.lang.Integer arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
-			return getConcrete().verifyImageMatch(arg0, arg1, arg2, arg3);
+			return getConcrete().exists(arg0);
 		}
 
 		@Override 
-		public boolean verifyImageMatch(java.awt.image.RenderedImage arg0, byte arg1) throws com.hp.lft.sdk.GeneralLeanFtException 
+		public com.hp.lft.sdk.NativeObject getNativeObject() throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
-			return getConcrete().verifyImageMatch(arg0, arg1);
+			return getConcrete().getNativeObject();
 		}
 
 		@Override 
@@ -581,7 +575,19 @@ public class DemoAppModel extends AppModelBase {		private AdvantageShoppingPage 
 		}
 
 		@Override 
-		public boolean verifyImageMatch(java.awt.image.RenderedImage arg0, com.hp.lft.sdk.ImageMaskArea arg1) throws com.hp.lft.sdk.GeneralLeanFtException 
+		public boolean verifyImageMatch(java.awt.image.RenderedImage arg0, com.hp.lft.sdk.ImageMaskArea arg1, byte arg2, byte arg3) throws com.hp.lft.sdk.GeneralLeanFtException 
+		{
+			return getConcrete().verifyImageMatch(arg0, arg1, arg2, arg3);
+		}
+
+		@Override 
+		public boolean verifyImageMatch(java.awt.image.RenderedImage arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
+		{
+			return getConcrete().verifyImageMatch(arg0);
+		}
+
+		@Override 
+		public boolean verifyImageMatch(java.awt.image.RenderedImage arg0, byte arg1) throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
 			return getConcrete().verifyImageMatch(arg0, arg1);
 		}
@@ -593,21 +599,15 @@ public class DemoAppModel extends AppModelBase {		private AdvantageShoppingPage 
 		}
 
 		@Override 
-		public boolean verifyImageMatch(java.awt.image.RenderedImage arg0) throws com.hp.lft.sdk.GeneralLeanFtException 
+		public boolean verifyImageMatch(java.awt.image.RenderedImage arg0, com.hp.lft.sdk.ImageMaskArea arg1) throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
-			return getConcrete().verifyImageMatch(arg0);
+			return getConcrete().verifyImageMatch(arg0, arg1);
 		}
 
 		@Override 
 		public java.lang.String getOuterText() throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
 			return getConcrete().getOuterText();
-		}
-
-		@Override 
-		public com.hp.lft.sdk.NativeObject getNativeObject() throws com.hp.lft.sdk.GeneralLeanFtException 
-		{
-			return getConcrete().getNativeObject();
 		}
 
 		@Override 
@@ -629,15 +629,15 @@ public class DemoAppModel extends AppModelBase {		private AdvantageShoppingPage 
 		}
 
 		@Override 
-		public <TChild extends TestObject> int highlightMatches(java.lang.Class<TChild> arg0, com.hp.lft.sdk.Description arg1) throws com.hp.lft.sdk.GeneralLeanFtException, java.lang.CloneNotSupportedException 
-		{
-			return getConcrete().highlightMatches(arg0, arg1);
-		}
-
-		@Override 
 		public java.awt.Dimension getSize() throws com.hp.lft.sdk.GeneralLeanFtException 
 		{
 			return getConcrete().getSize();
+		}
+
+		@Override 
+		public <TChild extends TestObject> int highlightMatches(java.lang.Class<TChild> arg0, com.hp.lft.sdk.Description arg1) throws com.hp.lft.sdk.GeneralLeanFtException, java.lang.CloneNotSupportedException 
+		{
+			return getConcrete().highlightMatches(arg0, arg1);
 		}
 
 		@Override 

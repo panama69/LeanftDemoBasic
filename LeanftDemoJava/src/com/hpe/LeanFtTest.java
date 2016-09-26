@@ -93,13 +93,13 @@ public class LeanFtTest extends UnitTestClassBase {
         //Full user details and complete purchase
         DemoAppModel appModel = new DemoAppModel(browser);
 
-        appModel.AdvantageShoppingPage().UserName().setValue(getUserNameFromExcel());
-        //appModel.AdvantageShoppingPage().UserName().setValue("demo_user");
+/*      //appModel.AdvantageShoppingPage().UserName().setValue(getUserNameFromExcel());
+        appModel.AdvantageShoppingPage().UserName().setValue("demo_user");
         appModel.AdvantageShoppingPage().Password().setValue("Aa1234");
         appModel.AdvantageShoppingPage().Password().click();
         appModel.AdvantageShoppingPage().LoginBtn().click();
         
-        
+*/        
         browser.close();
     }
 
