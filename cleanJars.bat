@@ -15,7 +15,7 @@ curl -v -X POST -H "Content-Type: text/xml" http://localhost:8080/view/DemoView/
 echo ##
 echo ## Removing demo jar folder %userprofile%\LeanftBasicJars
 echo ##
-rmdir /s /q %userprofile%\LeanftBasicDemoJars
+rmdir /s /q c:\tmp\LeanftBasicDemoJars
 
 echo ##
 echo ## Removing slave.jar for Jenkins agent
