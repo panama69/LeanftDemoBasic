@@ -7,23 +7,23 @@ Assumptions
   2. You are using demo image ADM_1253 v5
   3. The instructions assume you are performing a clone and not a zip download
 
-
-1. git clone -v https://github.com/panama69/LeanftDemoBasic.git
-2. Open Eclipse and install TestNG
-  * Eclipse->Help->Eclipse Marketplace.
-  * Search for 'TestNG'.
-  * Install 'TestNG for Eclipse'.
-  * Follow the rest of the instructions on the install and restart Eclipse.
-  * Minimize for later.
-3. Using Windows explorer go to the clone location
-  * run the pullJars.bat.
-  * run JenkinsAgent.bat.
-4. Maximize/Open Eclipse
-  * File->Open Projects From File System/
-  * Select the 'Directory' button and select the folder where your Git download is and select the folder.
-  * Select only the.
-    * LeanftDemoJava.
-    * Cucumber.
+Steps
+  1. git clone -v https://github.com/panama69/LeanftDemoBasic.git
+  2. Open Eclipse and install TestNG
+    * Eclipse->Help->Eclipse Marketplace.
+    * Search for 'TestNG'.
+    * Install 'TestNG for Eclipse'.
+    * Follow the rest of the instructions on the install and restart Eclipse.
+    * Minimize for later.
+  3. Using Windows explorer go to the clone location
+    * run the pullJars.bat.
+    * run JenkinsAgent.bat.
+  4. Maximize/Open Eclipse
+    * File->Open Projects From File System
+    * Select the 'Directory' button and select the folder where your Git download is and select the folder.
+    * Select only the.
+      * LeanftDemoJava.
+      * Cucumber.
 
 **LeanftDemoJava**
   * You will need to build this script like in the video before you can executed it.
