@@ -23,13 +23,14 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.BatchFile>
-
-      <command>cd &quot;C:\Users\Administrator\DemoWorkspace\TestExecution&quot;&#xd;
+      <command>set JARBASE=&quot;C:\tmp\LeanftBasicDemoJars&quot;&#xd;
+set TESTNG=&quot;C:\Users\Administrator\.p2\pool\plugins\org.testng.eclipse_6.9.12.201607091356\lib&quot;&#xd;
 &#xd;
-java -cp &quot;*;LeanftDemoJava.jar&quot; org.testng.TestNG testng.xml&#xd;
+cd &quot;%JARBASE%\TestExecution&quot;&#xd;
+&#xd;
+java -cp &quot;%JARBASE%\Apache_POI\*;%JARBASE%\LftSdk\*;%TESTNG%\tesng.jar;%TESTNG%\jcommander.jar;*;LeanftDemoJava.jar&quot; org.testng.TestNG testng.xml&#xd;
 &#xd;
 xcopy /y /s RunResults &quot;%WORKSPACE%\RunResults\&quot;</command>
-
     </hudson.tasks.BatchFile>
   </builders>
   <publishers>
@@ -42,9 +43,8 @@ xcopy /y /s RunResults &quot;%WORKSPACE%\RunResults\&quot;</command>
       <caseSensitive>true</caseSensitive>
     </hudson.tasks.ArtifactArchiver>
     <org.jvnet.hudson.plugins.groovypostbuild.GroovyPostbuildRecorder plugin="groovy-postbuild@2.3.1">
-      <script plugin="script-security@1.21">
-        <script>manager.addBadge(&quot;lft.gif&quot;, &quot;LeanFT Report&quot;, manager.build.getAbsoluteUrl()+&apos;artifact/RunResults/RunResults.html&apos;)
-</script>
+      <script plugin="script-security@1.22">
+        <script>manager.addBadge(&quot;lft.gif&quot;, &quot;LeanFT Report&quot;, manager.build.getAbsoluteUrl()+&apos;artifact/RunResults/RunResults.html&apos;)</script>
         <sandbox>false</sandbox>
       </script>
       <behavior>0</behavior>
