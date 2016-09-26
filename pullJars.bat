@@ -85,9 +85,20 @@ mkdir %DEMO_JARS_BASE%\LftSdk
 echo #-------------------------------------------------------#
 echo #  Searching for UFT installation.  Please be patient.  #
 echo #-------------------------------------------------------#
+rem notes on variable expantion in a loop http://stackoverflow.com/questions/2913231/how-do-i-increment-a-dos-variable-in-a-for-f-loop
+set /a x=1
+setlocal ENABLEDELAYEDEXPANSION
 for /f "delims=" %%a in ('wmic product where "Name='HP Unified Functional Testing'" get InstallLocation') do (
-set LFT=%%a )
-copy "%LFT%\SDK\Java\com.hp.lft.*.jar" %DEMO_JARS_BASE%\LftSdk
+   if !x! EQU 2 (
+      set LFT=%%a
+   )
+   rem echo Iteration !x! %%a
+   set /a x=x+1
+)
+echo Copying LFT jars from: "%LFT%"
+cd "%LFT%"
+copy SDK\Java\com.hp.lft.*.jar %DEMO_JARS_BASE%\LftSdk
+cd %DEMO_JARS_BASE%
 
 
 echo ##
