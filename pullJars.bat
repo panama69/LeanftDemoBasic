@@ -8,8 +8,6 @@ msiexec.exe /i utilities\curl-7.46.0-win64-local.msi /passive
 
 set CURL_BASE="%appdata%\..\Local\Apps\cURL\bin"
 set HOME=%cd%
-
-
 mkdir c:\tmp
 mkdir c:\tmp\LeanftBasicDemoJars
 set DEMO_JARS_BASE="c:\tmp\LeanftBasicDemoJars"
@@ -101,13 +99,6 @@ echo Copying LFT jars from: "%LFT%"
 cd "%LFT%"
 copy SDK\Java\com.hp.lft.*.jar %DEMO_JARS_BASE%\LftSdk
 cd %DEMO_JARS_BASE%
-
-echo ##
-echo ## Copy DataSources and UFTAPITests
-echo ##   From %HOME% to %DEMO_JARS_BASE%
-mkdir %DEMO_JARS_BASE%\DataSources
-copy %HOME%\DataSources %DEMO_JARS_BASE%\DataSources
-xcopy /E %HOME%\UFTAPITests %DEMO_JARS_BASE%
 
 
 echo ##
