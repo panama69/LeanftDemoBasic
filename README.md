@@ -7,7 +7,7 @@ Assumptions
   2. You are using demo image ADM_1253 v5
   3. The instructions assume you are performing a clone and not a zip download
 
-Steps
+Installation Steps
   1. git clone -v https://github.com/panama69/LeanftDemoBasic.git
   2. Open Eclipse and install TestNG
     * Eclipse->Help->Eclipse Marketplace.
@@ -24,6 +24,12 @@ Steps
     * Select only the.
       * LeanftDemoJava.
       * Cucumber.
+
+Removal Steps
+  1. Go to the folder where you cloned the project
+  2. Run the cleanJars.bat
+    - this will remove the jars used by the demo and remove the job and view that was created in Jenkins
+  3. Delete the folder where you placed the clone.
 
 **LeanftDemoJava**
   * You will need to build this script like in the video before you can executed it.
