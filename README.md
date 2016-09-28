@@ -11,6 +11,7 @@ Installation Steps
   1. git clone -v http://github.com/panama69/LeanftDemoBasic.git
     * the above will clone all the latest files in the project.  Using this may not work as some non-working changes may have been committed.
     * If you want to see the releases/tags for the project from your favorite git commandline tool us git ls-remote --tags https://github.com/panama69/LeanftDemoBasic.git
+    * The other way to get a specific release is to click the release link and then download the source from the release of your choice.
     * To check out a specific release use git clone -v --branch v1.0.0-beta https://github.com/panama69/LeanftDemoBasic.git
     * To clone a s
   2. Open Eclipse and install TestNG
