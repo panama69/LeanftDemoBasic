@@ -110,8 +110,4 @@ header.txt
 #UFT ignore
 /Result*
 *.log
-*.log
-UFTAPITests/CreateAOSUser/Log/vtd_internal.log
-*.log
-UFTAPITests/CreateAOSUser/Log/vtd_user.log
-UFTAPITests/CreateAOSUser/Log/vtd_user.log
+
