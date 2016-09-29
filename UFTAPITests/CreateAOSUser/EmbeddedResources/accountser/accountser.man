@@ -4,8 +4,8 @@
   <Name>accountser</Name>
   <Type>WSDL</Type>
   <Version>1</Version>
-  <CreationDate>2016-07-21T12:05:44.8351158+02:00</CreationDate>
-  <UpdateDate>2016-07-21T12:05:44.8351158+02:00</UpdateDate>
+  <CreationDate>2016-07-21T04:05:44.8351158-06:00</CreationDate>
+  <UpdateDate>2016-07-21T04:05:44.8351158-06:00</UpdateDate>
   <LoaderID>SignatureResourceHandler</LoaderID>
   <MetaDataSignatureFile>61ef31b3-9e50-4fd2-b531-9b2c3f651a79.xml</MetaDataSignatureFile>
   <TestResourceId>61ef31b3-9e50-4fd2-b531-9b2c3f651a79</TestResourceId>
@@ -18,7 +18,7 @@
         <string>RepositoryPath</string>
       </Key>
       <Value>
-        <string>C:\UFTAPITest\CreateAOSUser\EmbeddedResources</string>
+        <string>C:\Temp\New folder\LeanftDemoBasic\UFTAPITests\CreateAOSUser\EmbeddedResources</string>
       </Value>
     </Item>
     <Item>
@@ -26,7 +26,7 @@
         <string>ResourceOrigin</string>
       </Key>
       <Value>
-        <string>C:\UFTAPITest\CreateAOSUser\EmbeddedResources\accountser</string>
+        <string>C:\Temp\New folder\LeanftDemoBasic\UFTAPITests\CreateAOSUser\EmbeddedResources\accountser</string>
       </Value>
     </Item>
     <Item>

@@ -32,19 +32,19 @@
     <VarName>TestDir</VarName>
     <IsSystem>true</IsSystem>
     <Description />
-    <SystemProfile>C:\UFTAPITest\CreateAOSUser</SystemProfile>
+    <SystemProfile />
   </Profiles>
   <Profiles>
     <VarName>TestName</VarName>
     <IsSystem>true</IsSystem>
     <Description />
-    <SystemProfile>CreateAOSUser</SystemProfile>
+    <SystemProfile />
   </Profiles>
   <Profiles>
     <VarName>LocalHostName</VarName>
     <IsSystem>true</IsSystem>
     <Description />
-    <SystemProfile>BPT-DEV</SystemProfile>
+    <SystemProfile>ALMTRAINING</SystemProfile>
   </Profiles>
   <Profiles>
     <VarName>OS</VarName>
@@ -80,13 +80,13 @@
     <VarName>UserName</VarName>
     <IsSystem>true</IsSystem>
     <Description />
-    <SystemProfile>BPT</SystemProfile>
+    <SystemProfile>Administrator</SystemProfile>
   </Profiles>
   <Profiles>
     <VarName>CurrentDate</VarName>
     <IsSystem>true</IsSystem>
     <Description />
-    <SystemProfile>7/21/2016 1:43:31 PM</SystemProfile>
+    <SystemProfile>9/28/2016 6:24:44 PM</SystemProfile>
   </Profiles>
   <Profiles>
     <VarName>QcUrl</VarName>
