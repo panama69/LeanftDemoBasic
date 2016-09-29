@@ -110,4 +110,4 @@ header.txt
 #UFT ignore
 /Result*
 *.log
-
+HP.ST.Types.dll
