@@ -66,7 +66,6 @@ $RECYCLE.BIN/
 # 2016/09/25 - flynn
 #========================
 .metadata
-bin/
 tmp/
 *.tmp
 *.bak
