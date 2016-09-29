@@ -1,6 +1,7 @@
 #UFT ignore section
 /obj
 /DatabaseBackup
+/bin/HP.ST.Types.dll
 /bin/Script.dll
 /bin/Script.pdb
 /Result*
