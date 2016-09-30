@@ -44,8 +44,8 @@ del selenium-java-2.53.1.zip
 echo ##
 echo ## Check TestNG plugin for Eclipse is installed
 echo ##
-set TESTNG="C:\Users\Administrator\.p2\pool\plugins\org.testng.eclipse_6.9.12.201607091356\lib\testng.jar"
-set JCOMMANDER="C:\Users\Administrator\.p2\pool\plugins\org.testng.eclipse_6.9.12.201607091356\lib\jcommander.jar"
+set TESTNG="C:\Users\Administrator\.p2\pool\plugins\org.testng.eclipse_6.9.13.201609291640\lib\testng.jar"
+set JCOMMANDER="C:\Users\Administrator\.p2\pool\plugins\org.testng.eclipse_6.9.13.201609291640\lib\jcommander.jar"
 
 set MISSING=0
 if not exist %TESTNG% (
