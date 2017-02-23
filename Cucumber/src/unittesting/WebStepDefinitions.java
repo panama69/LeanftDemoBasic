@@ -2,6 +2,7 @@ package unittesting;
 
 import com.hp.lft.report.ReportException;
 import com.hp.lft.report.Reporter;
+import com.hp.lft.reportbuilder.*;
 import com.hp.lft.sdk.GeneralLeanFtException;
 import com.hp.lft.sdk.RegExpProperty;
 import com.hp.lft.sdk.web.*;
@@ -34,6 +35,7 @@ public class WebStepDefinitions {
 */        
 
         ChromeOptions chromeOptions = new ChromeOptions();
+        
         chromeOptions.addExtensions(new File (AGENT_PATH));
         chromeDriver = new ChromeDriver(chromeOptions);
         chromeDriver.get(HOME_URL);

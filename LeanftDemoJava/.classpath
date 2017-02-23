@@ -32,5 +32,6 @@
 	<classpathentry kind="lib" path="C:/tmp/LeanftBasicDemoJars/Apache_POI/poi-scratchpad-3.15.jar"/>
 	<classpathentry kind="var" path="TESTNG_HOME/lib/jcommander.jar"/>
 	<classpathentry kind="var" path="TESTNG_HOME/lib/testng.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/HP/Unified Functional Testing/SDK/Java/com.hp.lft.reportbuilder-standalone.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
