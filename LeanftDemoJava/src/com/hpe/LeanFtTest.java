@@ -2,7 +2,7 @@ package com.hpe;
 
 //TestNG Imports
 import org.testng.annotations.*;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 //Java Imports
 import java.io.File;
