@@ -24,9 +24,12 @@
   <builders>
     <hudson.tasks.BatchFile>
       <command>set JARBASE=&quot;C:\tmp\LeanftBasicDemoJars&quot;&#xd;
-set TESTNG=&quot;C:\Users\Administrator\.p2\pool\plugins\org.testng.eclipse_6.9.12.201607091356\lib&quot;&#xd;
 &#xd;
-cd &quot;%JARBASE%\TestExecution&quot;&#xd;
+cd C:\Users\Administrator\.p2\pool\plugins\org.testng.eclipse_*&#xd;
+&#xd;
+set TESTNG=%cd%\lib&#xd;
+&#xd;
+cd %JARBASE%\TestExecution&#xd;
 &#xd;
 java -cp &quot;%JARBASE%\Apache_POI\*;%JARBASE%\LftSdk\*;%TESTNG%\testng.jar;%TESTNG%\jcommander.jar;*;LeanftDemoJava.jar&quot; org.testng.TestNG testng.xml&#xd;
 &#xd;
