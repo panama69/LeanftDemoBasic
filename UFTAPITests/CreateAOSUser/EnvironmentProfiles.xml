@@ -32,13 +32,13 @@
     <VarName>TestDir</VarName>
     <IsSystem>true</IsSystem>
     <Description />
-    <SystemProfile />
+    <SystemProfile>C:\tmp\LeanftDemoBasic\UFTAPITests\CreateAOSUser</SystemProfile>
   </Profiles>
   <Profiles>
     <VarName>TestName</VarName>
     <IsSystem>true</IsSystem>
     <Description />
-    <SystemProfile />
+    <SystemProfile>CreateAOSUser</SystemProfile>
   </Profiles>
   <Profiles>
     <VarName>LocalHostName</VarName>
@@ -68,13 +68,13 @@
     <VarName>ProductName</VarName>
     <IsSystem>true</IsSystem>
     <Description />
-    <SystemProfile>HP Unified Functional Testing</SystemProfile>
+    <SystemProfile>HPE Unified Functional Testing</SystemProfile>
   </Profiles>
   <Profiles>
     <VarName>ProductVer</VarName>
     <IsSystem>true</IsSystem>
     <Description />
-    <SystemProfile>12.53</SystemProfile>
+    <SystemProfile>14.0</SystemProfile>
   </Profiles>
   <Profiles>
     <VarName>UserName</VarName>
@@ -86,7 +86,7 @@
     <VarName>CurrentDate</VarName>
     <IsSystem>true</IsSystem>
     <Description />
-    <SystemProfile>9/28/2016 6:24:44 PM</SystemProfile>
+    <SystemProfile>2/23/2017 2:40:43 PM</SystemProfile>
   </Profiles>
   <Profiles>
     <VarName>QcUrl</VarName>

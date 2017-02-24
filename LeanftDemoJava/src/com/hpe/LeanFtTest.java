@@ -2,7 +2,7 @@ package com.hpe;
 
 //TestNG Imports
 import org.testng.annotations.*;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 //Java Imports
 import java.io.File;
@@ -22,6 +22,7 @@ import com.hp.lft.sdk.*;
 import com.hp.lft.sdk.web.*;
 import com.hp.lft.unittesting.*;
 import com.hp.lft.verifications.*;
+import com.hp.lft.reportbuilder.*;
 import com.hp.lft.sdk.insight.*;
 import com.hp.lft.sdk.apitesting.uft.APITestResult;
 import com.hp.lft.sdk.apitesting.uft.APITestRunner;
@@ -66,7 +67,6 @@ public class LeanFtTest extends UnitTestClassBase {
     	// should use port 8080 for this test
     	// without 8080, you pick up different version of app which may have diff results
         browser.navigate("http://www.advantageonlineshopping.com:8080/#/");
-
         
         //Click the "Tablets" category
         
@@ -130,6 +130,7 @@ public class LeanFtTest extends UnitTestClassBase {
         inParams.put("UserName", userName);
 
         System.out.println("UFT: "+CREATE_USER_UFT_API_TEST);
+        System.out.println("Creating new users for: "+inParams.values());
         APITestResult result = APITestRunner.run(CREATE_USER_UFT_API_TEST, inParams);
     }
 

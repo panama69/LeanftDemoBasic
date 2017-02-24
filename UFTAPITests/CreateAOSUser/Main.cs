@@ -46,7 +46,8 @@
     	int reportLevelInTree;
         HP.ST.Fwk.ReportCreator.QTPEngine.QTPEngineReportCreator reportCreator;
     	
-    	public BindDirection bind_dir1 = null;
+    	public BindDirection bind_dir3 = null;
+        public BindDirection bind_dir4 = null;
         
         public IEnumerable<FeaturesGroup> LicensedFeatures
         {
@@ -93,7 +94,8 @@
         	_flow.StartActivity1 = new HP.ST.Ext.BasicActivities.StartActivity(_context,"StartActivity1");
             _flow.Loop2 = new HP.ST.Fwk.RunTimeFWK.CompositeActivities.Loop<Loop2Input>(_context,"Loop2",LoopType.For);
             _flow.EndActivity3 = new HP.ST.Ext.BasicActivities.EndActivity(_context,"EndActivity3");
-            _flow.Sequence5 = new HP.ST.Fwk.RunTimeFWK.CompositeActivities.Sequence(_context,"Sequence5");
+            _flow.Sequence6 = new HP.ST.Fwk.RunTimeFWK.CompositeActivities.Sequence(_context,"Sequence6");
+            _flow.ReportMessageActivity5 = new HP.ST.Ext.BasicActivities.ReportMessageActivity(_context,"ReportMessageActivity5");
             _flow.StServiceCallActivity4 = new HP.ST.Ext.WebServicesActivities.StServiceCallActivity(_context,"StServiceCallActivity4");
             XmlDocument StartActivity1_ExecutionInputParameters_Document = new XmlDocument();
             StartActivity1_ExecutionInputParameters_Document.PreserveWhitespace = true;
@@ -124,16 +126,30 @@
             _flow.Loop2.Comment = @"";
             _flow.Loop2.IconPath = @"AddIns\ServiceTest\BasicActivities\toolbox_loop.png";
             _flow.Loop2.Name = @"Test Flow";
-            _flow.Loop2.Activities.Add (_flow.Sequence5);
+            _flow.Loop2.Activities.Add (_flow.Sequence6);
             this.Activities.Add (_flow.Loop2);
             _flow.EndActivity3.Comment = @"";
             _flow.EndActivity3.IconPath = @"AddIns\ServiceTest\BasicActivities\toolbox_code_activity.png";
             _flow.EndActivity3.Name = @"End";
             this.Activities.Add (_flow.EndActivity3);
-            _flow.Sequence5.Comment = @"";
-            _flow.Sequence5.IconPath = @"";
-            _flow.Sequence5.Name = @"Sequence5";
-            _flow.Sequence5.Activities.Add (_flow.StServiceCallActivity4);
+            _flow.Sequence6.Comment = @"";
+            _flow.Sequence6.IconPath = @"";
+            _flow.Sequence6.Name = @"Sequence6";
+            _flow.Sequence6.Activities.Add (_flow.ReportMessageActivity5);
+            _flow.Sequence6.Activities.Add (_flow.StServiceCallActivity4);
+            _flow.ReportMessageActivity5.Status = @"Done";
+            _flow.ReportMessageActivity5.Message = @"{Step.OutputProperties.StartActivity1.UserName}";
+            _flow.ReportMessageActivity5.Destination = @"ReportAndOutput";
+            _flow.ReportMessageActivity5.Comment = @"";
+            _flow.ReportMessageActivity5.IconPath = @"AddIns\ServiceTest\BasicActivities\toolbox_report_message.png";
+            _flow.ReportMessageActivity5.Name = @"Name used";
+            VTDPropertyInfoBase pi5 = new VTDPropertyInfoBase("ExecutionInputParameters","/*[local-name(.)='Arguments'][1]/*[local-name(.)='UserName'][1]");
+            VTDBaseGetter binding_getter3 = new VTDXPathGetter(pi5,XmlTypeCode.String);
+            VTDPropertyInfoBase pi6 = new VTDPropertyInfoBase("Message");
+            VTDBaseSetter binding_setter3 = new VTDObjectSetter(pi6);
+            binding_setter3 = new StringFormaterDecorator(binding_setter3,"{Step.OutputProperties.StartActivity1.UserName}");
+            bind_dir3 = new BindDirection(_flow.StartActivity1,binding_getter3,binding_setter3,BindTargetType.ToInProperty);
+            _flow.ReportMessageActivity5.InDirections.Add(bind_dir3);
             XmlDocument StServiceCallActivity4_InputEnvelope_Document = new XmlDocument();
             StServiceCallActivity4_InputEnvelope_Document.PreserveWhitespace = true;
             StServiceCallActivity4_InputEnvelope_Document.LoadXml(
@@ -155,13 +171,13 @@
             _flow.StServiceCallActivity4.IsAsync=false;
             _flow.StServiceCallActivity4.TargetNamespace=@"com.advantage.online.store.accountservice";
             _flow.StServiceCallActivity4.ListenOnPort = (int)0;
-            VTDPropertyInfoBase pi1 = new VTDPropertyInfoBase("ExecutionInputParameters","/*[local-name(.)='Arguments'][1]/*[local-name(.)='UserName'][1]");
-            VTDBaseGetter binding_getter1 = new VTDXPathGetter(pi1,XmlTypeCode.String);
-            VTDPropertyInfoBase pi2 = new VTDPropertyInfoBase("InputEnvelope","/*[local-name(.)='Envelope'][1]/*[local-name(.)='Body'][1]/*[local-name(.)='AccountCreateRequest'][1]/*[local-name(.)='loginName'][1]");
-            VTDBaseSetter binding_setter1 = new VTDXPathSetter(pi2,XmlTypeCode.String);
-            binding_setter1 = new StringFormaterDecorator(binding_setter1,"{Step.OutputProperties.StartActivity1.UserName}");
-            bind_dir1 = new BindDirection(_flow.StartActivity1,binding_getter1,binding_setter1,BindTargetType.ToInProperty);
-            _flow.StServiceCallActivity4.InDirections.Add(bind_dir1);
+            VTDPropertyInfoBase pi7 = new VTDPropertyInfoBase("ExecutionInputParameters","/*[local-name(.)='Arguments'][1]/*[local-name(.)='UserName'][1]");
+            VTDBaseGetter binding_getter4 = new VTDXPathGetter(pi7,XmlTypeCode.String);
+            VTDPropertyInfoBase pi8 = new VTDPropertyInfoBase("InputEnvelope","/*[local-name(.)='Envelope'][1]/*[local-name(.)='Body'][1]/*[local-name(.)='AccountCreateRequest'][1]/*[local-name(.)='loginName'][1]");
+            VTDBaseSetter binding_setter4 = new VTDXPathSetter(pi8,XmlTypeCode.String);
+            binding_setter4 = new StringFormaterDecorator(binding_setter4,"{Step.OutputProperties.StartActivity1.UserName}");
+            bind_dir4 = new BindDirection(_flow.StartActivity1,binding_getter4,binding_setter4,BindTargetType.ToInProperty);
+            _flow.StServiceCallActivity4.InDirections.Add(bind_dir4);
             XmlDocument StServiceCallActivity4_ExpectedOutputAttachments_Document = new XmlDocument();
             StServiceCallActivity4_ExpectedOutputAttachments_Document.PreserveWhitespace = true;
             StServiceCallActivity4_ExpectedOutputAttachments_Document.LoadXml(

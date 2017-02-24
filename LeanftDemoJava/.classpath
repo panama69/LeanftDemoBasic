@@ -23,8 +23,6 @@
 			<attribute name="javadoc_location" value="jar:file:/C:\Program Files (x86)\HP\Unified Functional Testing\SDK\Java\com.hp.lft.sdk-javadoc.jar!/"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/Administrator/.p2/pool/plugins/org.testng.eclipse_6.9.13.201609291640/lib/testng.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Administrator/.p2/pool/plugins/org.testng.eclipse_6.9.13.201609291640/lib/jcommander.jar"/>
 	<classpathentry kind="src" path="appmodels"/>
 	<classpathentry kind="lib" path="C:/tmp/LeanftBasicDemoJars/Apache_POI/poi-3.15.jar"/>
 	<classpathentry kind="lib" path="C:/tmp/LeanftBasicDemoJars/Apache_POI/poi-examples-3.15.jar"/>
@@ -32,5 +30,8 @@
 	<classpathentry kind="lib" path="C:/tmp/LeanftBasicDemoJars/Apache_POI/poi-ooxml-3.15.jar"/>
 	<classpathentry kind="lib" path="C:/tmp/LeanftBasicDemoJars/Apache_POI/poi-ooxml-schemas-3.15.jar"/>
 	<classpathentry kind="lib" path="C:/tmp/LeanftBasicDemoJars/Apache_POI/poi-scratchpad-3.15.jar"/>
+	<classpathentry kind="var" path="TESTNG_HOME/lib/jcommander.jar"/>
+	<classpathentry kind="var" path="TESTNG_HOME/lib/testng.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/HP/Unified Functional Testing/SDK/Java/com.hp.lft.reportbuilder-standalone.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

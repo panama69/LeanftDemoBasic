@@ -39,5 +39,6 @@
 	<classpathentry kind="lib" path="C:/tmp/LeanftBasicDemoJars/selenium-2.53.1/libs/httpcore-4.4.3.jar"/>
 	<classpathentry kind="lib" path="C:/tmp/LeanftBasicDemoJars/selenium-2.53.1/libs/junit-4.12.jar"/>
 	<classpathentry kind="lib" path="C:/tmp/LeanftBasicDemoJars/selenium-2.53.1/selenium-java-2.53.1.jar"/>
+	<classpathentry kind="lib" path="C:/Program Files (x86)/HP/Unified Functional Testing/SDK/Java/com.hp.lft.reportbuilder-standalone.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
