@@ -48,7 +48,7 @@ public class LeanFtTest extends UnitTestClassBase {
     public void beforeSuite() throws IOException, GeneralLeanFtException {
     	System.out.println("Project Base:"+PROJECT_BASE);
         userName = getUserNameFromExcel();
-        createNewUserInAOS();
+        //createNewUserInAOS();
     }
 
     @BeforeClass
