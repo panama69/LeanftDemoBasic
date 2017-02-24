@@ -4,8 +4,9 @@ All the components to perform a basic LFT demo along with making call to Excel f
 # Getting the demo
 Assumptions
   1. You have some form of Git on your machine
-  2. You are using demo image ADM_1253 v5
+  2. You are using demo image ADM_1253 v8 (This implies UFT/LFT is installed already)
   3. The instructions assume you are performing a clone and not a zip download
+  4. You have [Selenium Chrome Driver] (http://www.seleniumhq.org/download/) installed.  Which it wasn't at the time of this update.
 
 Installation Steps
   1. git clone -v http://github.com/panama69/LeanftDemoBasic.git
@@ -13,7 +14,6 @@ Installation Steps
     * If you want to see the releases/tags for the project from your favorite git commandline tool us git ls-remote --tags https://github.com/panama69/LeanftDemoBasic.git
     * The other way to get a specific release is to click the release link and then download the source from the release of your choice.
     * To check out a specific release use git clone -v --branch v1.0.0-beta https://github.com/panama69/LeanftDemoBasic.git
-    * To clone a s
   2. Open Eclipse and install TestNG
     * Eclipse->Help->Eclipse Marketplace.
     * Search for 'TestNG'.
@@ -22,13 +22,15 @@ Installation Steps
     * Minimize for later.
   3. Using Windows explorer go to the clone location
     * run the pullJars.bat.
-    * run JenkinsAgent.bat.
+    * run JenkinsAgent.bat.  **This is not required on the ADM_1253 v8 immage as the agent is started automatically by the image**
   4. Maximize/Open Eclipse
     * File->Open Projects From File System
     * Select the 'Directory' button and select the folder where your Git download is and select the folder.
     * Select only the.
-      * LeanftDemoJava.
-      * Cucumber.
+      * LeanftDemoBasic\Cucumber
+      * LeanftDemoBasic\LeanftDemoJava
+    * **Unselect**
+      * LeanftDemoBasic
 
 Removal Steps
   1. Go to the folder where you cloned the project
