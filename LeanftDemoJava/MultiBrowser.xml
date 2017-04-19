@@ -1,0 +1,15 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests">
+    <test name="BuyTabletChrome">
+        <parameter name="browser-name" value="CHROME"/>
+        <classes>
+            <class name="com.hpe.LeanFtTest"/>
+        </classes>
+    </test>
+    <test name="BuyTabletFF">
+        <parameter name="browser-name" value="FIREFOX"/>
+        <classes>
+            <class name="com.hpe.LeanFtTest"/>
+        </classes>
+    </test>
+</suite>
